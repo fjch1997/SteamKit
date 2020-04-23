@@ -5,6 +5,7 @@
 
 
 using System;
+using System.Net;
 using System.Net.Http;
 using SteamKit2.Discovery;
 
@@ -89,5 +90,12 @@ namespace SteamKit2
         /// Keys can be obtained from https://steamcommunity.com/dev or the Steamworks Partner site.</param>
         /// <returns>A builder with modified configuration.</returns>
         ISteamConfigurationBuilder WithWebAPIKey(string webApiKey);
+
+        /// <summary>
+        /// Configures an <see cref="IWebProxy"/> when using <see cref="ProtocolTypes.WebSocket"/>. Other types are not supported.
+        /// </summary>
+        /// <param name="webProxy">An <see cref="IWebProxy"/> when using <see cref="ProtocolTypes.WebSocket"/>. Other types are not supported.</param>
+        /// <returns>A builder with modified configuration.</returns>
+        ISteamConfigurationBuilder WithWebProxy(IWebProxy webProxy );
     }
 }
