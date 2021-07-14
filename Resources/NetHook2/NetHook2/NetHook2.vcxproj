@@ -49,11 +49,23 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <ZLibVersion>1.2.11</ZLibVersion>
+    <ProtobufVersion>3.15.6</ProtobufVersion>
+    <ProtobufLibraryName Condition="'$(Configuration)' == 'Debug'">libprotobufd.lib</ProtobufLibraryName>
+    <ProtobufLibraryName Condition="'$(ProtobufLibraryName)' == ''">libprotobuf.lib</ProtobufLibraryName>
   </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\native-dependencies\protobuf-$(ProtobufVersion)\src;..\native-dependencies\zlib-bins;..\native-dependencies\zlib-$(ZLibVersion);.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\native-dependencies\protobuf-bins\$(Configuration);..\native-dependencies\zlib-bins\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProtobufLibraryName);zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>
       </BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -63,15 +75,16 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO /ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PreBuildEvent>
+      <Command>powershell.exe -ExecutionPolicy Unrestricted ..\GenerateVersionInfo.ps1</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <WarningLevel>Level3</WarningLevel>
@@ -85,8 +98,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalDependencies>libprotobuf_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>powershell.exe -ExecutionPolicy Unrestricted ..\GenerateVersionInfo.ps1</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binaryreader.cpp" />
@@ -101,6 +116,7 @@
     <ClCompile Include="sigscan.cpp" />
     <ClCompile Include="steammessages_base.pb.cc" />
     <ClCompile Include="string.cpp" />
+    <ClCompile Include="version.cpp" />
     <ClCompile Include="zip.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -121,11 +137,11 @@
     <ClInclude Include="steam\steamtypes.h" />
     <ClInclude Include="steam\udppkt.h" />
     <ClInclude Include="nh2_string.h" />
+    <ClInclude Include="version.h" />
     <ClInclude Include="zip.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="detours.lib" />
-    <Library Include="zlib.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

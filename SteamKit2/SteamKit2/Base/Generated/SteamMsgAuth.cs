@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -36,16 +36,6 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeappid() => __pbn__appid != null;
         public void Resetappid() => __pbn__appid = null;
         private uint? __pbn__appid;
-
-        [global::ProtoBuf.ProtoMember(3)]
-        public bool request_trial
-        {
-            get => __pbn__request_trial.GetValueOrDefault();
-            set => __pbn__request_trial = value;
-        }
-        public bool ShouldSerializerequest_trial() => __pbn__request_trial != null;
-        public void Resetrequest_trial() => __pbn__request_trial = null;
-        private bool? __pbn__request_trial;
 
     }
 
@@ -151,5 +141,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

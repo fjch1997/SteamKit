@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -441,7 +441,6 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMsgClientToGCRecycleHeroRelic = 7619,
         k_EMsgClientToGCRecycleHeroRelicResponse = 7620,
         k_EMsgGCToGCRevokeEventOwnership = 7621,
-        k_EMsgGCToGCUnlockEventPointSpending = 7622,
         k_EMsgGCToClientRequestLaneSelection = 7623,
         k_EMsgGCToClientRequestLaneSelectionResponse = 7624,
         k_EMsgServerToGCCavernCrawlIsHeroActive = 7625,
@@ -512,10 +511,6 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMsgClientToGCFriendsPlayedCustomGameRequest = 8020,
         k_EMsgGCToClientFriendsPlayedCustomGameResponse = 8021,
         k_EMsgGCTopCustomGamesList = 8024,
-        k_EMsgClientToGCSocialMatchPostCommentRequest = 8025,
-        k_EMsgGCToClientSocialMatchPostCommentResponse = 8026,
-        k_EMsgClientToGCSocialMatchDetailsRequest = 8027,
-        k_EMsgGCToClientSocialMatchDetailsResponse = 8028,
         k_EMsgClientToGCSetPartyOpen = 8029,
         k_EMsgClientToGCMergePartyInvite = 8030,
         k_EMsgGCToClientMergeGroupInviteReply = 8031,
@@ -821,6 +816,8 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMsgClientToGCSubmitPlayerMatchSurveyResponse = 8362,
         k_EMsgSQLGCToGCGrantAllHeroProgressAccount = 8363,
         k_EMsgSQLGCToGCGrantAllHeroProgressVictory = 8364,
+        k_EMsgDevDeleteEventActions = 8365,
+        k_EMsgDevDeleteEventActionsResponse = 8366,
         k_eMsgGCToGCGetAllHeroCurrent = 8635,
         k_eMsgGCToGCGetAllHeroCurrentResponse = 8636,
         k_EMsgGCSubmitPlayerAvoidRequest = 8637,
@@ -904,8 +901,6 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMsgSignOutGuildChallengeProgress = 8720,
         k_EMsgClientToGCRequestGuildEventMembers = 8721,
         k_EMsgClientToGCRequestGuildEventMembersResponse = 8722,
-        k_EMsgServerToGCRefreshGuildContract = 8723,
-        k_EMsgServerToGCRefreshGuildContractResponse = 8724,
         k_EMsgClientToGCReportGuildContent = 8725,
         k_EMsgClientToGCReportGuildContentResponse = 8726,
         k_EMsgClientToGCRequestAccountGuildPersonaInfo = 8727,
@@ -922,11 +917,40 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMsgClientToGCApplyGauntletTicket = 8739,
         k_EMsgClientToGCUnderDraftRollBackBench = 8740,
         k_EMsgClientToGCUnderDraftRollBackBenchResponse = 8741,
+        k_EMsgGCToGCGetEventActionScore = 8742,
+        k_EMsgGCToGCGetEventActionScoreResponse = 8743,
         k_EMsgServerToGCGetGuildContracts = 8744,
         k_EMsgServerToGCGetGuildContractsResponse = 8745,
+        k_EMsgLobbyEventGameData = 8746,
+        k_EMsgGCToClientGuildMembersDataUpdated = 8747,
+        k_EMsgSignOutReportActivityMarkers = 8748,
+        k_EMsgSignOutDiretideCandy = 8749,
+        k_EMsgGCToClientPostGameItemAwardNotification = 8750,
+        k_EMsgClientToGCGetOWMatchDetails = 8751,
+        k_EMsgClientToGCGetOWMatchDetailsResponse = 8752,
+        k_EMsgClientToGCSubmitOWConviction = 8753,
+        k_EMsgClientToGCSubmitOWConvictionResponse = 8754,
+        k_EMsgGCToGCGetAccountSteamChina = 8755,
+        k_EMsgGCToGCGetAccountSteamChinaResponse = 8756,
+        k_EMsgClientToGCClaimLeaderboardRewards = 8757,
+        k_EMsgClientToGCClaimLeaderboardRewardsResponse = 8758,
+        k_EMsgClientToGCRecalibrateMMR = 8759,
+        k_EMsgClientToGCRecalibrateMMRResponse = 8760,
+        k_EMsgGCToGCGrantEventPointActionList = 8761,
+        k_EMsgClientToGCChinaSSAURLRequest = 8764,
+        k_EMsgClientToGCChinaSSAURLResponse = 8765,
+        k_EMsgClientToGCChinaSSAAcceptedRequest = 8766,
+        k_EMsgClientToGCChinaSSAAcceptedResponse = 8767,
+        k_EMsgSignOutOverwatchSuspicion = 8768,
+        k_EMsgServerToGCGetSuspicionConfig = 8769,
+        k_EMsgServerToGCGetSuspicionConfigResponse = 8770,
+        k_EMsgGCToGCGrantPlusHeroChallengeMatchResults = 8771,
+        k_EMsgGCToClientOverwatchCasesAvailable = 8772,
+        k_EMsgServerToGCAccountCheck = 8773,
+        k_EMsgSignOutPerfData = 8776,
     }
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

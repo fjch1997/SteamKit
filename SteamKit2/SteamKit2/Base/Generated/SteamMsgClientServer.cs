@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -351,14 +351,14 @@ namespace SteamKit2.Internal
         private byte[] __pbn__candidate;
 
         [global::ProtoBuf.ProtoMember(5, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-        public ulong connection_id_src
+        public ulong legacy_connection_id_src
         {
-            get => __pbn__connection_id_src.GetValueOrDefault();
-            set => __pbn__connection_id_src = value;
+            get => __pbn__legacy_connection_id_src.GetValueOrDefault();
+            set => __pbn__legacy_connection_id_src = value;
         }
-        public bool ShouldSerializeconnection_id_src() => __pbn__connection_id_src != null;
-        public void Resetconnection_id_src() => __pbn__connection_id_src = null;
-        private ulong? __pbn__connection_id_src;
+        public bool ShouldSerializelegacy_connection_id_src() => __pbn__legacy_connection_id_src != null;
+        public void Resetlegacy_connection_id_src() => __pbn__legacy_connection_id_src = null;
+        private ulong? __pbn__legacy_connection_id_src;
 
         [global::ProtoBuf.ProtoMember(6)]
         public byte[] rendezvous
@@ -2011,57 +2011,6 @@ namespace SteamKit2.Internal
             public bool ShouldSerializeugc_id() => __pbn__ugc_id != null;
             public void Resetugc_id() => __pbn__ugc_id = null;
             private ulong? __pbn__ugc_id;
-
-        }
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class CMsgClientAppMinutesPlayedData : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1)]
-        public global::System.Collections.Generic.List<AppMinutesPlayedData> minutes_played { get; } = new global::System.Collections.Generic.List<AppMinutesPlayedData>();
-
-        [global::ProtoBuf.ProtoContract()]
-        public partial class AppMinutesPlayedData : global::ProtoBuf.IExtensible
-        {
-            private global::ProtoBuf.IExtension __pbn__extensionData;
-            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-            [global::ProtoBuf.ProtoMember(1)]
-            public uint app_id
-            {
-                get => __pbn__app_id.GetValueOrDefault();
-                set => __pbn__app_id = value;
-            }
-            public bool ShouldSerializeapp_id() => __pbn__app_id != null;
-            public void Resetapp_id() => __pbn__app_id = null;
-            private uint? __pbn__app_id;
-
-            [global::ProtoBuf.ProtoMember(2)]
-            public int forever
-            {
-                get => __pbn__forever.GetValueOrDefault();
-                set => __pbn__forever = value;
-            }
-            public bool ShouldSerializeforever() => __pbn__forever != null;
-            public void Resetforever() => __pbn__forever = null;
-            private int? __pbn__forever;
-
-            [global::ProtoBuf.ProtoMember(3)]
-            public int last_two_weeks
-            {
-                get => __pbn__last_two_weeks.GetValueOrDefault();
-                set => __pbn__last_two_weeks = value;
-            }
-            public bool ShouldSerializelast_two_weeks() => __pbn__last_two_weeks != null;
-            public void Resetlast_two_weeks() => __pbn__last_two_weeks = null;
-            private int? __pbn__last_two_weeks;
 
         }
 
@@ -6840,14 +6789,14 @@ namespace SteamKit2.Internal
             private ulong? __pbn__access_token;
 
             [global::ProtoBuf.ProtoMember(3)]
-            public bool only_public
+            public bool only_public_obsolete
             {
-                get => __pbn__only_public.GetValueOrDefault();
-                set => __pbn__only_public = value;
+                get => __pbn__only_public_obsolete.GetValueOrDefault();
+                set => __pbn__only_public_obsolete = value;
             }
-            public bool ShouldSerializeonly_public() => __pbn__only_public != null;
-            public void Resetonly_public() => __pbn__only_public = null;
-            private bool? __pbn__only_public;
+            public bool ShouldSerializeonly_public_obsolete() => __pbn__only_public_obsolete != null;
+            public void Resetonly_public_obsolete() => __pbn__only_public_obsolete = null;
+            private bool? __pbn__only_public_obsolete;
 
         }
 
@@ -7977,5 +7926,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

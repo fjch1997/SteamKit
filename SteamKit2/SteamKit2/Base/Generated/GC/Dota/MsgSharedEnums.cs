@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -1153,7 +1153,8 @@ namespace SteamKit2.GC.Dota.Internal
         EVENT_ID_NEW_BLOOM_2020 = 28,
         EVENT_ID_INTERNATIONAL_2020 = 29,
         EVENT_ID_TEAM_FANDOM = 30,
-        EVENT_ID_COUNT = 31,
+        EVENT_ID_DIRETIDE_2020 = 31,
+        EVENT_ID_COUNT = 32,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1339,17 +1340,6 @@ namespace SteamKit2.GC.Dota.Internal
         DOTAMatchVote_INVALID = 0,
         DOTAMatchVote_POSITIVE = 1,
         DOTAMatchVote_NEGATIVE = 2,
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public enum DOTA_LobbyMemberXPBonus
-    {
-        DOTA_LobbyMemberXPBonus_DEFAULT = 0,
-        DOTA_LobbyMemberXPBonus_BATTLE_BOOSTER = 1,
-        DOTA_LobbyMemberXPBonus_SHARE_BONUS = 2,
-        DOTA_LobbyMemberXPBonus_PARTY = 3,
-        DOTA_LobbyMemberXPBonus_RECRUITMENT = 4,
-        DOTA_LobbyMemberXPBonus_PCBANG = 5,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1542,6 +1532,8 @@ namespace SteamKit2.GC.Dota.Internal
         LEAGUE_TIER_MAJOR = 4,
         LEAGUE_TIER_INTERNATIONAL = 5,
         LEAGUE_TIER_DPC_QUALIFIER = 6,
+        LEAGUE_TIER_DPC_LEAGUE_QUALIFIER = 7,
+        LEAGUE_TIER_DPC_LEAGUE = 8,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1706,7 +1698,18 @@ namespace SteamKit2.GC.Dota.Internal
         k_eEventActionScoreMode_Min = 1,
     }
 
+    [global::ProtoBuf.ProtoContract()]
+    public enum EOverwatchReportReason
+    {
+        k_EOverwatchReportReason_Unknown = 0,
+        k_EOverwatchReportReason_Cheating = 1,
+        k_EOverwatchReportReason_Feeding = 2,
+        k_EOverwatchReportReason_Griefing = 3,
+        k_EOverwatchReportReason_Suspicious = 4,
+        k_EOverwatchReportReason_AbilityAbuse = 5,
+    }
+
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

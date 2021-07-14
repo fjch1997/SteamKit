@@ -1865,6 +1865,9 @@ namespace SteamKit2
 		AccountHasBeenDeleted = 114,
 		AccountHasAnExistingUserCancelledLicense = 115,
 		DeniedDueToCommunityCooldown = 116,
+		NoLauncherSpecified = 117,
+		MustAgreeToSSA = 118,
+		LauncherMigrated = 119,
 	}
 	public enum EUniverse
 	{
@@ -2177,6 +2180,8 @@ namespace SteamKit2
 		MasterComp = 130,
 		Promotional = 131,
 		MasterSubscription = 134,
+		Payco = 135,
+		MobileWalletJapan = 136,
 		OEMTicket = 256,
 		Split = 512,
 		Complimentary = 1024,
@@ -2495,6 +2500,8 @@ namespace SteamKit2
 		Macos1013 = -84,
 		Macos1014 = -83,
 		Macos1015 = -82,
+		MacOS1016 = -81,
+		MacOS11 = -80,
 		MacOSMax = -1,
 		LinuxUnknown = -203,
 		Linux22 = -202,
@@ -2514,6 +2521,9 @@ namespace SteamKit2
 		Linux414 = -188,
 		Linux419 = -187,
 		Linux5x = -186,
+		Linux54 = -185,
+		Linux6x = -184,
+		Linux7x = -183,
 		LinuxMax = -101,
 		WinUnknown = 0,
 		Win311 = 1,
@@ -2533,7 +2543,8 @@ namespace SteamKit2
 		Win2012R2 = 15,
 		Windows10 = 16,
 		Win2016 = 17,
-		WinMAX = 18,
+		Win2019 = 18,
+		WinMAX = 19,
 	}
 	public enum EServerType
 	{
@@ -2684,6 +2695,13 @@ namespace SteamKit2
 		CommercialLicense = 14,
 		FreeCommercialLicense = 15,
 		NumBillingTypes = 16,
+	}
+	public enum EPackageStatus
+	{
+		Available = 0,
+		Preorder = 1,
+		Unavailable = 2,
+		Invalid = 3,
 	}
 	public enum EActivationCodeClass : uint
 	{
@@ -3091,6 +3109,7 @@ namespace SteamKit2
 		Comic = 32768,
 		Beta = 65536,
 		Shortcut = 1073741824,
+		[Obsolete]
 		DepotOnly = -2147483648,
 	}
 	public enum EChatRoomGroupType

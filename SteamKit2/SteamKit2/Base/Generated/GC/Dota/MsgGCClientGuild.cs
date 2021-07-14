@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -241,6 +241,46 @@ namespace SteamKit2.GC.Dota.Internal
             public bool ShouldSerializeguild_points() => __pbn__guild_points != null;
             public void Resetguild_points() => __pbn__guild_points = null;
             private uint? __pbn__guild_points;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            public uint guild_rank
+            {
+                get => __pbn__guild_rank.GetValueOrDefault();
+                set => __pbn__guild_rank = value;
+            }
+            public bool ShouldSerializeguild_rank() => __pbn__guild_rank != null;
+            public void Resetguild_rank() => __pbn__guild_rank = null;
+            private uint? __pbn__guild_rank;
+
+            [global::ProtoBuf.ProtoMember(4)]
+            public uint guild_weekly_rank
+            {
+                get => __pbn__guild_weekly_rank.GetValueOrDefault();
+                set => __pbn__guild_weekly_rank = value;
+            }
+            public bool ShouldSerializeguild_weekly_rank() => __pbn__guild_weekly_rank != null;
+            public void Resetguild_weekly_rank() => __pbn__guild_weekly_rank = null;
+            private uint? __pbn__guild_weekly_rank;
+
+            [global::ProtoBuf.ProtoMember(5)]
+            public uint guild_weekly_percentile
+            {
+                get => __pbn__guild_weekly_percentile.GetValueOrDefault();
+                set => __pbn__guild_weekly_percentile = value;
+            }
+            public bool ShouldSerializeguild_weekly_percentile() => __pbn__guild_weekly_percentile != null;
+            public void Resetguild_weekly_percentile() => __pbn__guild_weekly_percentile = null;
+            private uint? __pbn__guild_weekly_percentile;
+
+            [global::ProtoBuf.ProtoMember(6)]
+            public uint guild_current_percentile
+            {
+                get => __pbn__guild_current_percentile.GetValueOrDefault();
+                set => __pbn__guild_current_percentile = value;
+            }
+            public bool ShouldSerializeguild_current_percentile() => __pbn__guild_current_percentile != null;
+            public void Resetguild_current_percentile() => __pbn__guild_current_percentile = null;
+            private uint? __pbn__guild_current_percentile;
 
         }
 
@@ -810,6 +850,28 @@ namespace SteamKit2.GC.Dota.Internal
         public bool ShouldSerializeupdate_flags() => __pbn__update_flags != null;
         public void Resetupdate_flags() => __pbn__update_flags = null;
         private uint? __pbn__update_flags;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CMsgGCToClientGuildMembersDataUpdated : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint guild_id
+        {
+            get => __pbn__guild_id.GetValueOrDefault();
+            set => __pbn__guild_id = value;
+        }
+        public bool ShouldSerializeguild_id() => __pbn__guild_id != null;
+        public void Resetguild_id() => __pbn__guild_id = null;
+        private uint? __pbn__guild_id;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public global::System.Collections.Generic.List<CMsgGuildMember> members_data { get; } = new global::System.Collections.Generic.List<CMsgGuildMember>();
 
     }
 
@@ -2154,8 +2216,8 @@ namespace SteamKit2.GC.Dota.Internal
         k_EGuildAuditAction_AdminLock = 21,
         k_EGuildAuditAction_GuildNameChanged = 22,
         k_EGuildAuditAction_GuildTagChanged = 23,
-        k_EGuildAuditAction_AdminWhitelisted = 24,
-        k_EGuildAuditAction_AdminBlacklisted = 25,
+        k_EGuildAuditAction_AdminPermitted = 24,
+        k_EGuildAuditAction_AdminBlocked = 25,
         k_EGuildAuditAction_AdminBannedUser = 26,
     }
 
@@ -2169,5 +2231,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

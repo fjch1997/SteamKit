@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -2346,6 +2346,16 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resettxn_country_code() => __pbn__txn_country_code = null;
         private string __pbn__txn_country_code;
 
+        [global::ProtoBuf.ProtoMember(38)]
+        public bool has_accepted_china_ssa
+        {
+            get => __pbn__has_accepted_china_ssa.GetValueOrDefault();
+            set => __pbn__has_accepted_china_ssa = value;
+        }
+        public bool ShouldSerializehas_accepted_china_ssa() => __pbn__has_accepted_china_ssa != null;
+        public void Resethas_accepted_china_ssa() => __pbn__has_accepted_china_ssa = null;
+        private bool? __pbn__has_accepted_china_ssa;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -4110,5 +4120,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

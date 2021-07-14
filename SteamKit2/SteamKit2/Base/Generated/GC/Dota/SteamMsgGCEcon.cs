@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -2822,6 +2822,48 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CProtoItemSocket_Strange_DESERIALIZE_FROM_STRING_ONLY : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public CProtoItemSocket socket { get; set; }
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint strange_type
+        {
+            get => __pbn__strange_type.GetValueOrDefault();
+            set => __pbn__strange_type = value;
+        }
+        public bool ShouldSerializestrange_type() => __pbn__strange_type != null;
+        public void Resetstrange_type() => __pbn__strange_type = null;
+        private uint? __pbn__strange_type;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public uint strange_value
+        {
+            get => __pbn__strange_value.GetValueOrDefault();
+            set => __pbn__strange_value = value;
+        }
+        public bool ShouldSerializestrange_value() => __pbn__strange_value != null;
+        public void Resetstrange_value() => __pbn__strange_value = null;
+        private uint? __pbn__strange_value;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public uint ability_effect
+        {
+            get => __pbn__ability_effect.GetValueOrDefault();
+            set => __pbn__ability_effect = value;
+        }
+        public bool ShouldSerializeability_effect() => __pbn__ability_effect != null;
+        public void Resetability_effect() => __pbn__ability_effect = null;
+        private uint? __pbn__ability_effect;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public partial class CProtoItemSocket_Spectator : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -3703,6 +3745,16 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resetreason_code() => __pbn__reason_code = null;
         private uint? __pbn__reason_code;
 
+        [global::ProtoBuf.ProtoMember(3)]
+        public uint partner
+        {
+            get => __pbn__partner.GetValueOrDefault();
+            set => __pbn__partner = value;
+        }
+        public bool ShouldSerializepartner() => __pbn__partner != null;
+        public void Resetpartner() => __pbn__partner = null;
+        private uint? __pbn__partner;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -4408,6 +4460,67 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CMsgClientToGCGetLimitedItemPurchaseQuantity : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint item_def
+        {
+            get => __pbn__item_def.GetValueOrDefault();
+            set => __pbn__item_def = value;
+        }
+        public bool ShouldSerializeitem_def() => __pbn__item_def != null;
+        public void Resetitem_def() => __pbn__item_def = null;
+        private uint? __pbn__item_def;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CMsgClientToGCGetLimitedItemPurchaseQuantityResponse : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        [global::System.ComponentModel.DefaultValue(EResponse.k_eInternalError)]
+        public EResponse result
+        {
+            get => __pbn__result ?? EResponse.k_eInternalError;
+            set => __pbn__result = value;
+        }
+        public bool ShouldSerializeresult() => __pbn__result != null;
+        public void Resetresult() => __pbn__result = null;
+        private EResponse? __pbn__result;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint quantity_purchased
+        {
+            get => __pbn__quantity_purchased.GetValueOrDefault();
+            set => __pbn__quantity_purchased = value;
+        }
+        public bool ShouldSerializequantity_purchased() => __pbn__quantity_purchased != null;
+        public void Resetquantity_purchased() => __pbn__quantity_purchased = null;
+        private uint? __pbn__quantity_purchased;
+
+        [global::ProtoBuf.ProtoContract()]
+        public enum EResponse
+        {
+            k_eInternalError = 0,
+            k_eSuccess = 1,
+            k_eTooBusy = 2,
+            k_eDisabled = 3,
+            k_eTimeout = 4,
+            k_eInvalidItemDef = 5,
+            k_eItemDefNotLimited = 6,
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public enum EGCItemMsg
     {
         k_EMsgGCBase = 1000,
@@ -4595,6 +4708,8 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMsgGCToGCGetInfuxIntervalStats = 2606,
         k_EMsgGCToGCGetInfuxIntervalStatsResponse = 2607,
         k_EMsgGCToGCPurchaseSucceeded = 2608,
+        k_EMsgClientToGCGetLimitedItemPurchaseQuantity = 2609,
+        k_EMsgClientToGCGetLimitedItemPurchaseQuantityResponse = 2610,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -4650,5 +4765,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -101,6 +101,17 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeinclude_free_sub() => __pbn__include_free_sub != null;
         public void Resetinclude_free_sub() => __pbn__include_free_sub = null;
         private bool? __pbn__include_free_sub;
+
+        [global::ProtoBuf.ProtoMember(6)]
+        [global::System.ComponentModel.DefaultValue(true)]
+        public bool skip_unvetted_apps
+        {
+            get => __pbn__skip_unvetted_apps ?? true;
+            set => __pbn__skip_unvetted_apps = value;
+        }
+        public bool ShouldSerializeskip_unvetted_apps() => __pbn__skip_unvetted_apps != null;
+        public void Resetskip_unvetted_apps() => __pbn__skip_unvetted_apps = null;
+        private bool? __pbn__skip_unvetted_apps;
 
     }
 
@@ -825,6 +836,28 @@ namespace SteamKit2.Internal
         public void Resetmovie_mp4() => __pbn__movie_mp4 = null;
         private string __pbn__movie_mp4;
 
+        [global::ProtoBuf.ProtoMember(13)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string movie_webm_small
+        {
+            get => __pbn__movie_webm_small ?? "";
+            set => __pbn__movie_webm_small = value;
+        }
+        public bool ShouldSerializemovie_webm_small() => __pbn__movie_webm_small != null;
+        public void Resetmovie_webm_small() => __pbn__movie_webm_small = null;
+        private string __pbn__movie_webm_small;
+
+        [global::ProtoBuf.ProtoMember(14)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string movie_mp4_small
+        {
+            get => __pbn__movie_mp4_small ?? "";
+            set => __pbn__movie_mp4_small = value;
+        }
+        public bool ShouldSerializemovie_mp4_small() => __pbn__movie_mp4_small != null;
+        public void Resetmovie_mp4_small() => __pbn__movie_mp4_small = null;
+        private string __pbn__movie_mp4_small;
+
         [global::ProtoBuf.ProtoMember(12)]
         public uint equipped_flags
         {
@@ -1300,6 +1333,16 @@ namespace SteamKit2.Internal
             public void Resettime_received() => __pbn__time_received = null;
             private uint? __pbn__time_received;
 
+            [global::ProtoBuf.ProtoMember(6)]
+            public uint appid
+            {
+                get => __pbn__appid.GetValueOrDefault();
+                set => __pbn__appid = value;
+            }
+            public bool ShouldSerializeappid() => __pbn__appid != null;
+            public void Resetappid() => __pbn__appid = null;
+            private uint? __pbn__appid;
+
         }
 
     }
@@ -1415,6 +1458,701 @@ namespace SteamKit2.Internal
             private uint? __pbn__cache_time;
 
         }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetFavoriteBadge_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetFavoriteBadge_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public bool has_favorite_badge
+        {
+            get => __pbn__has_favorite_badge.GetValueOrDefault();
+            set => __pbn__has_favorite_badge = value;
+        }
+        public bool ShouldSerializehas_favorite_badge() => __pbn__has_favorite_badge != null;
+        public void Resethas_favorite_badge() => __pbn__has_favorite_badge = null;
+        private bool? __pbn__has_favorite_badge;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint badgeid
+        {
+            get => __pbn__badgeid.GetValueOrDefault();
+            set => __pbn__badgeid = value;
+        }
+        public bool ShouldSerializebadgeid() => __pbn__badgeid != null;
+        public void Resetbadgeid() => __pbn__badgeid = null;
+        private uint? __pbn__badgeid;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public ulong communityitemid
+        {
+            get => __pbn__communityitemid.GetValueOrDefault();
+            set => __pbn__communityitemid = value;
+        }
+        public bool ShouldSerializecommunityitemid() => __pbn__communityitemid != null;
+        public void Resetcommunityitemid() => __pbn__communityitemid = null;
+        private ulong? __pbn__communityitemid;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public uint item_type
+        {
+            get => __pbn__item_type.GetValueOrDefault();
+            set => __pbn__item_type = value;
+        }
+        public bool ShouldSerializeitem_type() => __pbn__item_type != null;
+        public void Resetitem_type() => __pbn__item_type = null;
+        private uint? __pbn__item_type;
+
+        [global::ProtoBuf.ProtoMember(5)]
+        public uint border_color
+        {
+            get => __pbn__border_color.GetValueOrDefault();
+            set => __pbn__border_color = value;
+        }
+        public bool ShouldSerializeborder_color() => __pbn__border_color != null;
+        public void Resetborder_color() => __pbn__border_color = null;
+        private uint? __pbn__border_color;
+
+        [global::ProtoBuf.ProtoMember(6)]
+        public uint appid
+        {
+            get => __pbn__appid.GetValueOrDefault();
+            set => __pbn__appid = value;
+        }
+        public bool ShouldSerializeappid() => __pbn__appid != null;
+        public void Resetappid() => __pbn__appid = null;
+        private uint? __pbn__appid;
+
+        [global::ProtoBuf.ProtoMember(7)]
+        public uint level
+        {
+            get => __pbn__level.GetValueOrDefault();
+            set => __pbn__level = value;
+        }
+        public bool ShouldSerializelevel() => __pbn__level != null;
+        public void Resetlevel() => __pbn__level = null;
+        private uint? __pbn__level;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_SetFavoriteBadge_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong communityitemid
+        {
+            get => __pbn__communityitemid.GetValueOrDefault();
+            set => __pbn__communityitemid = value;
+        }
+        public bool ShouldSerializecommunityitemid() => __pbn__communityitemid != null;
+        public void Resetcommunityitemid() => __pbn__communityitemid = null;
+        private ulong? __pbn__communityitemid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint badgeid
+        {
+            get => __pbn__badgeid.GetValueOrDefault();
+            set => __pbn__badgeid = value;
+        }
+        public bool ShouldSerializebadgeid() => __pbn__badgeid != null;
+        public void Resetbadgeid() => __pbn__badgeid = null;
+        private uint? __pbn__badgeid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_SetFavoriteBadge_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetProfileCustomization_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public bool include_inactive_customizations
+        {
+            get => __pbn__include_inactive_customizations.GetValueOrDefault();
+            set => __pbn__include_inactive_customizations = value;
+        }
+        public bool ShouldSerializeinclude_inactive_customizations() => __pbn__include_inactive_customizations != null;
+        public void Resetinclude_inactive_customizations() => __pbn__include_inactive_customizations = null;
+        private bool? __pbn__include_inactive_customizations;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public bool include_purchased_customizations
+        {
+            get => __pbn__include_purchased_customizations.GetValueOrDefault();
+            set => __pbn__include_purchased_customizations = value;
+        }
+        public bool ShouldSerializeinclude_purchased_customizations() => __pbn__include_purchased_customizations != null;
+        public void Resetinclude_purchased_customizations() => __pbn__include_purchased_customizations = null;
+        private bool? __pbn__include_purchased_customizations;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ProfileCustomizationSlot : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint slot
+        {
+            get => __pbn__slot.GetValueOrDefault();
+            set => __pbn__slot = value;
+        }
+        public bool ShouldSerializeslot() => __pbn__slot != null;
+        public void Resetslot() => __pbn__slot = null;
+        private uint? __pbn__slot;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint appid
+        {
+            get => __pbn__appid.GetValueOrDefault();
+            set => __pbn__appid = value;
+        }
+        public bool ShouldSerializeappid() => __pbn__appid != null;
+        public void Resetappid() => __pbn__appid = null;
+        private uint? __pbn__appid;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public ulong publishedfileid
+        {
+            get => __pbn__publishedfileid.GetValueOrDefault();
+            set => __pbn__publishedfileid = value;
+        }
+        public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+        public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+        private ulong? __pbn__publishedfileid;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public ulong item_assetid
+        {
+            get => __pbn__item_assetid.GetValueOrDefault();
+            set => __pbn__item_assetid = value;
+        }
+        public bool ShouldSerializeitem_assetid() => __pbn__item_assetid != null;
+        public void Resetitem_assetid() => __pbn__item_assetid = null;
+        private ulong? __pbn__item_assetid;
+
+        [global::ProtoBuf.ProtoMember(5)]
+        public ulong item_contextid
+        {
+            get => __pbn__item_contextid.GetValueOrDefault();
+            set => __pbn__item_contextid = value;
+        }
+        public bool ShouldSerializeitem_contextid() => __pbn__item_contextid != null;
+        public void Resetitem_contextid() => __pbn__item_contextid = null;
+        private ulong? __pbn__item_contextid;
+
+        [global::ProtoBuf.ProtoMember(6)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string notes
+        {
+            get => __pbn__notes ?? "";
+            set => __pbn__notes = value;
+        }
+        public bool ShouldSerializenotes() => __pbn__notes != null;
+        public void Resetnotes() => __pbn__notes = null;
+        private string __pbn__notes;
+
+        [global::ProtoBuf.ProtoMember(7)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string title
+        {
+            get => __pbn__title ?? "";
+            set => __pbn__title = value;
+        }
+        public bool ShouldSerializetitle() => __pbn__title != null;
+        public void Resettitle() => __pbn__title = null;
+        private string __pbn__title;
+
+        [global::ProtoBuf.ProtoMember(8)]
+        public uint accountid
+        {
+            get => __pbn__accountid.GetValueOrDefault();
+            set => __pbn__accountid = value;
+        }
+        public bool ShouldSerializeaccountid() => __pbn__accountid != null;
+        public void Resetaccountid() => __pbn__accountid = null;
+        private uint? __pbn__accountid;
+
+        [global::ProtoBuf.ProtoMember(9)]
+        public uint badgeid
+        {
+            get => __pbn__badgeid.GetValueOrDefault();
+            set => __pbn__badgeid = value;
+        }
+        public bool ShouldSerializebadgeid() => __pbn__badgeid != null;
+        public void Resetbadgeid() => __pbn__badgeid = null;
+        private uint? __pbn__badgeid;
+
+        [global::ProtoBuf.ProtoMember(10)]
+        public uint border_color
+        {
+            get => __pbn__border_color.GetValueOrDefault();
+            set => __pbn__border_color = value;
+        }
+        public bool ShouldSerializeborder_color() => __pbn__border_color != null;
+        public void Resetborder_color() => __pbn__border_color = null;
+        private uint? __pbn__border_color;
+
+        [global::ProtoBuf.ProtoMember(11)]
+        public ulong item_classid
+        {
+            get => __pbn__item_classid.GetValueOrDefault();
+            set => __pbn__item_classid = value;
+        }
+        public bool ShouldSerializeitem_classid() => __pbn__item_classid != null;
+        public void Resetitem_classid() => __pbn__item_classid = null;
+        private ulong? __pbn__item_classid;
+
+        [global::ProtoBuf.ProtoMember(12)]
+        public ulong item_instanceid
+        {
+            get => __pbn__item_instanceid.GetValueOrDefault();
+            set => __pbn__item_instanceid = value;
+        }
+        public bool ShouldSerializeitem_instanceid() => __pbn__item_instanceid != null;
+        public void Resetitem_instanceid() => __pbn__item_instanceid = null;
+        private ulong? __pbn__item_instanceid;
+
+        [global::ProtoBuf.ProtoMember(13)]
+        [global::System.ComponentModel.DefaultValue(EBanContentCheckResult.k_EBanContentCheckResult_NotScanned)]
+        public EBanContentCheckResult ban_check_result
+        {
+            get => __pbn__ban_check_result ?? EBanContentCheckResult.k_EBanContentCheckResult_NotScanned;
+            set => __pbn__ban_check_result = value;
+        }
+        public bool ShouldSerializeban_check_result() => __pbn__ban_check_result != null;
+        public void Resetban_check_result() => __pbn__ban_check_result = null;
+        private EBanContentCheckResult? __pbn__ban_check_result;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ProfileCustomization : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        [global::System.ComponentModel.DefaultValue(EProfileCustomizationType.k_EProfileCustomizationTypeInvalid)]
+        public EProfileCustomizationType customization_type
+        {
+            get => __pbn__customization_type ?? EProfileCustomizationType.k_EProfileCustomizationTypeInvalid;
+            set => __pbn__customization_type = value;
+        }
+        public bool ShouldSerializecustomization_type() => __pbn__customization_type != null;
+        public void Resetcustomization_type() => __pbn__customization_type = null;
+        private EProfileCustomizationType? __pbn__customization_type;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public bool large
+        {
+            get => __pbn__large.GetValueOrDefault();
+            set => __pbn__large = value;
+        }
+        public bool ShouldSerializelarge() => __pbn__large != null;
+        public void Resetlarge() => __pbn__large = null;
+        private bool? __pbn__large;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public global::System.Collections.Generic.List<ProfileCustomizationSlot> slots { get; } = new global::System.Collections.Generic.List<ProfileCustomizationSlot>();
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public bool active
+        {
+            get => __pbn__active.GetValueOrDefault();
+            set => __pbn__active = value;
+        }
+        public bool ShouldSerializeactive() => __pbn__active != null;
+        public void Resetactive() => __pbn__active = null;
+        private bool? __pbn__active;
+
+        [global::ProtoBuf.ProtoMember(5)]
+        [global::System.ComponentModel.DefaultValue(EProfileCustomizationStyle.k_EProfileCustomizationStyleDefault)]
+        public EProfileCustomizationStyle customization_style
+        {
+            get => __pbn__customization_style ?? EProfileCustomizationStyle.k_EProfileCustomizationStyleDefault;
+            set => __pbn__customization_style = value;
+        }
+        public bool ShouldSerializecustomization_style() => __pbn__customization_style != null;
+        public void Resetcustomization_style() => __pbn__customization_style = null;
+        private EProfileCustomizationStyle? __pbn__customization_style;
+
+        [global::ProtoBuf.ProtoMember(6)]
+        public ulong purchaseid
+        {
+            get => __pbn__purchaseid.GetValueOrDefault();
+            set => __pbn__purchaseid = value;
+        }
+        public bool ShouldSerializepurchaseid() => __pbn__purchaseid != null;
+        public void Resetpurchaseid() => __pbn__purchaseid = null;
+        private ulong? __pbn__purchaseid;
+
+        [global::ProtoBuf.ProtoMember(7)]
+        public uint level
+        {
+            get => __pbn__level.GetValueOrDefault();
+            set => __pbn__level = value;
+        }
+        public bool ShouldSerializelevel() => __pbn__level != null;
+        public void Resetlevel() => __pbn__level = null;
+        private uint? __pbn__level;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class ProfileTheme : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string theme_id
+        {
+            get => __pbn__theme_id ?? "";
+            set => __pbn__theme_id = value;
+        }
+        public bool ShouldSerializetheme_id() => __pbn__theme_id != null;
+        public void Resettheme_id() => __pbn__theme_id = null;
+        private string __pbn__theme_id;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string title
+        {
+            get => __pbn__title ?? "";
+            set => __pbn__title = value;
+        }
+        public bool ShouldSerializetitle() => __pbn__title != null;
+        public void Resettitle() => __pbn__title = null;
+        private string __pbn__title;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetProfileCustomization_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<ProfileCustomization> customizations { get; } = new global::System.Collections.Generic.List<ProfileCustomization>();
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint slots_available
+        {
+            get => __pbn__slots_available.GetValueOrDefault();
+            set => __pbn__slots_available = value;
+        }
+        public bool ShouldSerializeslots_available() => __pbn__slots_available != null;
+        public void Resetslots_available() => __pbn__slots_available = null;
+        private uint? __pbn__slots_available;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public ProfileTheme profile_theme { get; set; }
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public global::System.Collections.Generic.List<PurchasedCustomization> purchased_customizations { get; } = new global::System.Collections.Generic.List<PurchasedCustomization>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class PurchasedCustomization : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public ulong purchaseid
+            {
+                get => __pbn__purchaseid.GetValueOrDefault();
+                set => __pbn__purchaseid = value;
+            }
+            public bool ShouldSerializepurchaseid() => __pbn__purchaseid != null;
+            public void Resetpurchaseid() => __pbn__purchaseid = null;
+            private ulong? __pbn__purchaseid;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            [global::System.ComponentModel.DefaultValue(EProfileCustomizationType.k_EProfileCustomizationTypeInvalid)]
+            public EProfileCustomizationType customization_type
+            {
+                get => __pbn__customization_type ?? EProfileCustomizationType.k_EProfileCustomizationTypeInvalid;
+                set => __pbn__customization_type = value;
+            }
+            public bool ShouldSerializecustomization_type() => __pbn__customization_type != null;
+            public void Resetcustomization_type() => __pbn__customization_type = null;
+            private EProfileCustomizationType? __pbn__customization_type;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            public uint level
+            {
+                get => __pbn__level.GetValueOrDefault();
+                set => __pbn__level = value;
+            }
+            public bool ShouldSerializelevel() => __pbn__level != null;
+            public void Resetlevel() => __pbn__level = null;
+            private uint? __pbn__level;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetPurchasedProfileCustomizations_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetPurchasedProfileCustomizations_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<PurchasedCustomization> purchased_customizations { get; } = new global::System.Collections.Generic.List<PurchasedCustomization>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class PurchasedCustomization : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public ulong purchaseid
+            {
+                get => __pbn__purchaseid.GetValueOrDefault();
+                set => __pbn__purchaseid = value;
+            }
+            public bool ShouldSerializepurchaseid() => __pbn__purchaseid != null;
+            public void Resetpurchaseid() => __pbn__purchaseid = null;
+            private ulong? __pbn__purchaseid;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            [global::System.ComponentModel.DefaultValue(EProfileCustomizationType.k_EProfileCustomizationTypeInvalid)]
+            public EProfileCustomizationType customization_type
+            {
+                get => __pbn__customization_type ?? EProfileCustomizationType.k_EProfileCustomizationTypeInvalid;
+                set => __pbn__customization_type = value;
+            }
+            public bool ShouldSerializecustomization_type() => __pbn__customization_type != null;
+            public void Resetcustomization_type() => __pbn__customization_type = null;
+            private EProfileCustomizationType? __pbn__customization_type;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<PurchasedCustomization> purchased_customizations { get; } = new global::System.Collections.Generic.List<PurchasedCustomization>();
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public global::System.Collections.Generic.List<UpgradedCustomization> upgraded_customizations { get; } = new global::System.Collections.Generic.List<UpgradedCustomization>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class PurchasedCustomization : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            [global::System.ComponentModel.DefaultValue(EProfileCustomizationType.k_EProfileCustomizationTypeInvalid)]
+            public EProfileCustomizationType customization_type
+            {
+                get => __pbn__customization_type ?? EProfileCustomizationType.k_EProfileCustomizationTypeInvalid;
+                set => __pbn__customization_type = value;
+            }
+            public bool ShouldSerializecustomization_type() => __pbn__customization_type != null;
+            public void Resetcustomization_type() => __pbn__customization_type = null;
+            private EProfileCustomizationType? __pbn__customization_type;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint count
+            {
+                get => __pbn__count.GetValueOrDefault();
+                set => __pbn__count = value;
+            }
+            public bool ShouldSerializecount() => __pbn__count != null;
+            public void Resetcount() => __pbn__count = null;
+            private uint? __pbn__count;
+
+        }
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class UpgradedCustomization : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            [global::System.ComponentModel.DefaultValue(EProfileCustomizationType.k_EProfileCustomizationTypeInvalid)]
+            public EProfileCustomizationType customization_type
+            {
+                get => __pbn__customization_type ?? EProfileCustomizationType.k_EProfileCustomizationTypeInvalid;
+                set => __pbn__customization_type = value;
+            }
+            public bool ShouldSerializecustomization_type() => __pbn__customization_type != null;
+            public void Resetcustomization_type() => __pbn__customization_type = null;
+            private EProfileCustomizationType? __pbn__customization_type;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint level
+            {
+                get => __pbn__level.GetValueOrDefault();
+                set => __pbn__level = value;
+            }
+            public bool ShouldSerializelevel() => __pbn__level != null;
+            public void Resetlevel() => __pbn__level = null;
+            private uint? __pbn__level;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetProfileThemesAvailable_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetProfileThemesAvailable_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<ProfileTheme> profile_themes { get; } = new global::System.Collections.Generic.List<ProfileTheme>();
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_SetProfileTheme_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string theme_id
+        {
+            get => __pbn__theme_id ?? "";
+            set => __pbn__theme_id = value;
+        }
+        public bool ShouldSerializetheme_id() => __pbn__theme_id != null;
+        public void Resettheme_id() => __pbn__theme_id = null;
+        private string __pbn__theme_id;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_SetProfileTheme_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
     }
 
@@ -1760,6 +2498,17 @@ namespace SteamKit2.Internal
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        [global::System.ComponentModel.DefaultValue(EAgreementType.k_EAgreementType_Invalid)]
+        public EAgreementType agreement_type
+        {
+            get => __pbn__agreement_type ?? EAgreementType.k_EAgreementType_Invalid;
+            set => __pbn__agreement_type = value;
+        }
+        public bool ShouldSerializeagreement_type() => __pbn__agreement_type != null;
+        public void Resetagreement_type() => __pbn__agreement_type = null;
+        private EAgreementType? __pbn__agreement_type;
 
     }
 
@@ -2165,6 +2914,38 @@ namespace SteamKit2.Internal
         public void Resetparenthesize_nicknames() => __pbn__parenthesize_nicknames = null;
         private bool? __pbn__parenthesize_nicknames;
 
+        [global::ProtoBuf.ProtoMember(5)]
+        [global::System.ComponentModel.DefaultValue(ETextFilterSetting.k_ETextFilterSettingSteamLabOptedOut)]
+        public ETextFilterSetting text_filter_setting
+        {
+            get => __pbn__text_filter_setting ?? ETextFilterSetting.k_ETextFilterSettingSteamLabOptedOut;
+            set => __pbn__text_filter_setting = value;
+        }
+        public bool ShouldSerializetext_filter_setting() => __pbn__text_filter_setting != null;
+        public void Resettext_filter_setting() => __pbn__text_filter_setting = null;
+        private ETextFilterSetting? __pbn__text_filter_setting;
+
+        [global::ProtoBuf.ProtoMember(6)]
+        [global::System.ComponentModel.DefaultValue(true)]
+        public bool text_filter_ignore_friends
+        {
+            get => __pbn__text_filter_ignore_friends ?? true;
+            set => __pbn__text_filter_ignore_friends = value;
+        }
+        public bool ShouldSerializetext_filter_ignore_friends() => __pbn__text_filter_ignore_friends != null;
+        public void Resettext_filter_ignore_friends() => __pbn__text_filter_ignore_friends = null;
+        private bool? __pbn__text_filter_ignore_friends;
+
+        [global::ProtoBuf.ProtoMember(7)]
+        public uint text_filter_words_revision
+        {
+            get => __pbn__text_filter_words_revision.GetValueOrDefault();
+            set => __pbn__text_filter_words_revision = value;
+        }
+        public bool ShouldSerializetext_filter_words_revision() => __pbn__text_filter_words_revision != null;
+        public void Resettext_filter_words_revision() => __pbn__text_filter_words_revision = null;
+        private uint? __pbn__text_filter_words_revision;
+
         [global::ProtoBuf.ProtoMember(3)]
         public uint timestamp_updated
         {
@@ -2207,6 +2988,52 @@ namespace SteamKit2.Internal
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetTextFilterWords_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_TextFilterWords : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<string> text_filter_custom_banned_words { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public global::System.Collections.Generic.List<string> text_filter_custom_clean_words { get; } = new global::System.Collections.Generic.List<string>();
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public uint text_filter_words_revision
+        {
+            get => __pbn__text_filter_words_revision.GetValueOrDefault();
+            set => __pbn__text_filter_words_revision = value;
+        }
+        public bool ShouldSerializetext_filter_words_revision() => __pbn__text_filter_words_revision != null;
+        public void Resettext_filter_words_revision() => __pbn__text_filter_words_revision = null;
+        private uint? __pbn__text_filter_words_revision;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetTextFilterWords_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public CPlayer_TextFilterWords words { get; set; }
 
     }
 
@@ -2651,6 +3478,18 @@ namespace SteamKit2.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_TextFilterWordsChanged_Notification : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public CPlayer_TextFilterWords words { get; set; }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public partial class CPlayer_PerFriendPreferencesChanged_Notification : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -2685,11 +3524,39 @@ namespace SteamKit2.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public enum EProfileCustomizationStyle
+    {
+        k_EProfileCustomizationStyleDefault = 0,
+        k_EProfileCustomizationStyleSelected = 1,
+        k_EProfileCustomizationStyleRarest = 2,
+        k_EProfileCustomizationStyleMostRecent = 3,
+        k_EProfileCustomizationStyleRandom = 4,
+        k_EProfileCustomizationStyleHighestRated = 5,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum EAgreementType
+    {
+        k_EAgreementType_Invalid = -1,
+        k_EAgreementType_GlobalSSA = 0,
+        k_EAgreementType_ChinaSSA = 1,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public enum ENotificationSetting
     {
         k_ENotificationSettingNotifyUseDefault = 0,
         k_ENotificationSettingAlways = 1,
         k_ENotificationSettingNever = 2,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum ETextFilterSetting
+    {
+        k_ETextFilterSettingSteamLabOptedOut = 0,
+        k_ETextFilterSettingEnabled = 1,
+        k_ETextFilterSettingEnabledAllowProfanity = 2,
+        k_ETextFilterSettingDisabled = 3,
     }
 
     public interface IPlayer
@@ -2713,6 +3580,13 @@ namespace SteamKit2.Internal
         CPlayer_SetEquippedProfileItemFlags_Response SetEquippedProfileItemFlags(CPlayer_SetEquippedProfileItemFlags_Request request);
         CPlayer_GetEmoticonList_Response GetEmoticonList(CPlayer_GetEmoticonList_Request request);
         CPlayer_GetAchievementsProgress_Response GetAchievementsProgress(CPlayer_GetAchievementsProgress_Request request);
+        CPlayer_GetFavoriteBadge_Response GetFavoriteBadge(CPlayer_GetFavoriteBadge_Request request);
+        CPlayer_SetFavoriteBadge_Response SetFavoriteBadge(CPlayer_SetFavoriteBadge_Request request);
+        CPlayer_GetProfileCustomization_Response GetProfileCustomization(CPlayer_GetProfileCustomization_Request request);
+        CPlayer_GetPurchasedProfileCustomizations_Response GetPurchasedProfileCustomizations(CPlayer_GetPurchasedProfileCustomizations_Request request);
+        CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response GetPurchasedAndUpgradedProfileCustomizations(CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request request);
+        CPlayer_GetProfileThemesAvailable_Response GetProfileThemesAvailable(CPlayer_GetProfileThemesAvailable_Request request);
+        CPlayer_SetProfileTheme_Response SetProfileTheme(CPlayer_SetProfileTheme_Request request);
         CPlayer_PostStatusToFriends_Response PostStatusToFriends(CPlayer_PostStatusToFriends_Request request);
         CPlayer_GetPostedStatus_Response GetPostedStatus(CPlayer_GetPostedStatus_Request request);
         CPlayer_DeletePostedStatus_Response DeletePostedStatus(CPlayer_DeletePostedStatus_Request request);
@@ -2726,6 +3600,7 @@ namespace SteamKit2.Internal
         CPlayer_IgnoreFriend_Response IgnoreFriend(CPlayer_IgnoreFriend_Request request);
         CPlayer_GetCommunityPreferences_Response GetCommunityPreferences(CPlayer_GetCommunityPreferences_Request request);
         CPlayer_SetCommunityPreferences_Response SetCommunityPreferences(CPlayer_SetCommunityPreferences_Request request);
+        CPlayer_GetTextFilterWords_Response GetTextFilterWords(CPlayer_GetTextFilterWords_Request request);
         CPlayer_GetNewSteamAnnouncementState_Response GetNewSteamAnnouncementState(CPlayer_GetNewSteamAnnouncementState_Request request);
         CPlayer_UpdateSteamAnnouncementLastRead_Response UpdateSteamAnnouncementLastRead(CPlayer_UpdateSteamAnnouncementLastRead_Request request);
         CPlayer_GetPrivacySettings_Response GetPrivacySettings(CPlayer_GetPrivacySettings_Request request);
@@ -2739,11 +3614,12 @@ namespace SteamKit2.Internal
         NoResponse NotifyFriendEquippedProfileItemsChanged(CPlayer_FriendEquippedProfileItemsChanged_Notification request);
         NoResponse NotifyNewSteamAnnouncementState(CPlayer_NewSteamAnnouncementState_Notification request);
         NoResponse NotifyCommunityPreferencesChanged(CPlayer_CommunityPreferencesChanged_Notification request);
+        NoResponse NotifyTextFilterWordsChanged(CPlayer_TextFilterWordsChanged_Notification request);
         NoResponse NotifyPerFriendPreferencesChanged(CPlayer_PerFriendPreferencesChanged_Notification request);
         NoResponse NotifyPrivacyPrivacySettingsChanged(CPlayer_PrivacySettingsChanged_Notification request);
     }
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

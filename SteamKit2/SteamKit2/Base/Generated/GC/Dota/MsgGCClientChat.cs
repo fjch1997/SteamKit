@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -720,6 +720,16 @@ namespace SteamKit2.GC.Dota.Internal
         public bool ShouldSerializestarted_finding_match() => __pbn__started_finding_match != null;
         public void Resetstarted_finding_match() => __pbn__started_finding_match = null;
         private bool? __pbn__started_finding_match;
+
+        [global::ProtoBuf.ProtoMember(36)]
+        public bool ctrl_is_down
+        {
+            get => __pbn__ctrl_is_down.GetValueOrDefault();
+            set => __pbn__ctrl_is_down = value;
+        }
+        public bool ShouldSerializectrl_is_down() => __pbn__ctrl_is_down != null;
+        public void Resetctrl_is_down() => __pbn__ctrl_is_down = null;
+        private bool? __pbn__ctrl_is_down;
 
         [global::ProtoBuf.ProtoContract()]
         public partial class DiceRoll : global::ProtoBuf.IExtensible
@@ -1491,5 +1501,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

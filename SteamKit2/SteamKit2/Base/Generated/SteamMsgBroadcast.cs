@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -427,16 +427,6 @@ namespace SteamKit2.Internal
         public void Resetviewer_token() => __pbn__viewer_token = null;
         private ulong? __pbn__viewer_token;
 
-        [global::ProtoBuf.ProtoMember(4)]
-        public uint client_ip
-        {
-            get => __pbn__client_ip.GetValueOrDefault();
-            set => __pbn__client_ip = value;
-        }
-        public bool ShouldSerializeclient_ip() => __pbn__client_ip != null;
-        public void Resetclient_ip() => __pbn__client_ip = null;
-        private uint? __pbn__client_ip;
-
         [global::ProtoBuf.ProtoMember(5)]
         public uint client_cell
         {
@@ -673,6 +663,17 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeduration() => __pbn__duration != null;
         public void Resetduration() => __pbn__duration = null;
         private int? __pbn__duration;
+
+        [global::ProtoBuf.ProtoMember(20)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string cdn_auth_url_parameters
+        {
+            get => __pbn__cdn_auth_url_parameters ?? "";
+            set => __pbn__cdn_auth_url_parameters = value;
+        }
+        public bool ShouldSerializecdn_auth_url_parameters() => __pbn__cdn_auth_url_parameters != null;
+        public void Resetcdn_auth_url_parameters() => __pbn__cdn_auth_url_parameters = null;
+        private string __pbn__cdn_auth_url_parameters;
 
         [global::ProtoBuf.ProtoContract()]
         public enum EWatchResponse
@@ -3513,5 +3514,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

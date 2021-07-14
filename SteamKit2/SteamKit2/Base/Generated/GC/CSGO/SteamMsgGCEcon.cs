@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.CSGO.Internal
 {
 
@@ -358,9 +358,10 @@ namespace SteamKit2.GC.CSGO.Internal
         k_EGCItemCustomizationNotification_ActivateOperationCoin = 9179,
         k_EGCItemCustomizationNotification_GraffitiUnseal = 9185,
         k_EGCItemCustomizationNotification_GenerateSouvenir = 9204,
+        k_EGCItemCustomizationNotification_ClientRedeemMissionReward = 9209,
     }
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

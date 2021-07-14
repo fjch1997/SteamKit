@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -1160,6 +1160,17 @@ namespace SteamKit2.Internal
         [global::ProtoBuf.ProtoMember(70)]
         public global::System.Collections.Generic.List<Reaction> reactions { get; } = new global::System.Collections.Generic.List<Reaction>();
 
+        [global::ProtoBuf.ProtoMember(71)]
+        [global::System.ComponentModel.DefaultValue(EBanContentCheckResult.k_EBanContentCheckResult_NotScanned)]
+        public EBanContentCheckResult ban_text_check_result
+        {
+            get => __pbn__ban_text_check_result ?? EBanContentCheckResult.k_EBanContentCheckResult_NotScanned;
+            set => __pbn__ban_text_check_result = value;
+        }
+        public bool ShouldSerializeban_text_check_result() => __pbn__ban_text_check_result != null;
+        public void Resetban_text_check_result() => __pbn__ban_text_check_result = null;
+        private EBanContentCheckResult? __pbn__ban_text_check_result;
+
         [global::ProtoBuf.ProtoContract()]
         public partial class Tag : global::ProtoBuf.IExtensible
         {
@@ -1187,6 +1198,17 @@ namespace SteamKit2.Internal
             public bool ShouldSerializeadminonly() => __pbn__adminonly != null;
             public void Resetadminonly() => __pbn__adminonly = null;
             private bool? __pbn__adminonly;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string display_name
+            {
+                get => __pbn__display_name ?? "";
+                set => __pbn__display_name = value;
+            }
+            public bool ShouldSerializedisplay_name() => __pbn__display_name != null;
+            public void Resetdisplay_name() => __pbn__display_name = null;
+            private string __pbn__display_name;
 
         }
 
@@ -1960,6 +1982,16 @@ namespace SteamKit2.Internal
         public bool ShouldSerializereturn_reactions() => __pbn__return_reactions != null;
         public void Resetreturn_reactions() => __pbn__return_reactions = null;
         private bool? __pbn__return_reactions;
+
+        [global::ProtoBuf.ProtoMember(25)]
+        public uint startindex_override
+        {
+            get => __pbn__startindex_override.GetValueOrDefault();
+            set => __pbn__startindex_override = value;
+        }
+        public bool ShouldSerializestartindex_override() => __pbn__startindex_override != null;
+        public void Resetstartindex_override() => __pbn__startindex_override = null;
+        private uint? __pbn__startindex_override;
 
         [global::ProtoBuf.ProtoMember(33)]
         [global::System.ComponentModel.DefaultValue(EPublishedFileRevision.k_EPublishedFileRevision_Default)]
@@ -3672,5 +3704,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

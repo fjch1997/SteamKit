@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -54,6 +54,26 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeseconds_allowed() => __pbn__seconds_allowed != null;
         public void Resetseconds_allowed() => __pbn__seconds_allowed = null;
         private uint? __pbn__seconds_allowed;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public uint packageid
+        {
+            get => __pbn__packageid.GetValueOrDefault();
+            set => __pbn__packageid = value;
+        }
+        public bool ShouldSerializepackageid() => __pbn__packageid != null;
+        public void Resetpackageid() => __pbn__packageid = null;
+        private uint? __pbn__packageid;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public uint mastersub_appid
+        {
+            get => __pbn__mastersub_appid.GetValueOrDefault();
+            set => __pbn__mastersub_appid = value;
+        }
+        public bool ShouldSerializemastersub_appid() => __pbn__mastersub_appid != null;
+        public void Resetmastersub_appid() => __pbn__mastersub_appid = null;
+        private uint? __pbn__mastersub_appid;
 
     }
 
@@ -172,5 +192,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

@@ -282,14 +282,18 @@ namespace SteamKit2.Internal
                 throw new ArgumentNullException( nameof(msg), "A value for 'msg' must be supplied" );
             }
 
-            if ( this.SessionID.HasValue )
+            var sessionID = this.SessionID;
+
+            if ( sessionID.HasValue )
             {
-                msg.SessionID = this.SessionID.Value;
+                msg.SessionID = sessionID.Value;
             }
 
-            if ( this.SteamID != null )
+            var steamID = this.SteamID;
+
+            if ( steamID != null )
             {
-                msg.SteamID = this.SteamID;
+                msg.SteamID = steamID;
             }
 
             try
@@ -375,6 +379,10 @@ namespace SteamKit2.Internal
                     HandleLoggedOff( packetMsg );
                     break;
 
+                case EMsg.ClientServerUnavailable:
+                    HandleServerUnavailable( packetMsg );
+                    break;
+                
                 case EMsg.ClientCMList:
                     HandleCMList( packetMsg );
                     break;
@@ -612,6 +620,16 @@ namespace SteamKit2.Internal
                 }
             }
         }
+        
+        void HandleServerUnavailable( IPacketMsg packetMsg )
+        {
+            var msgServerUnavailable = new ClientMsg<MsgClientServerUnavailable>( packetMsg );
+
+            LogDebug( "SteamClient", "A server of type '{0}' was not available for request: '{1}'",
+                msgServerUnavailable.Body.EServerTypeUnavailable, ( EMsg )msgServerUnavailable.Body.EMsgSent );
+            Disconnect( userInitiated: false );
+        }
+        
         void HandleCMList( IPacketMsg packetMsg )
         {
             var cmMsg = new ClientMsgProtobuf<CMsgClientCMList>( packetMsg );

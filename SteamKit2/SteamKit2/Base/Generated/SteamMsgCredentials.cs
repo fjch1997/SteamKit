@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -487,14 +487,15 @@ namespace SteamKit2.Internal
         private string __pbn__param_string;
 
         [global::ProtoBuf.ProtoMember(2)]
-        public uint ipaddress_actual
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ipaddress_actual
         {
-            get => __pbn__ipaddress_actual.GetValueOrDefault();
+            get => __pbn__ipaddress_actual ?? "";
             set => __pbn__ipaddress_actual = value;
         }
         public bool ShouldSerializeipaddress_actual() => __pbn__ipaddress_actual != null;
         public void Resetipaddress_actual() => __pbn__ipaddress_actual = null;
-        private uint? __pbn__ipaddress_actual;
+        private string __pbn__ipaddress_actual;
 
     }
 
@@ -506,14 +507,15 @@ namespace SteamKit2.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        public uint ipaddress_loginattempt
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ipaddress_loginattempt
         {
-            get => __pbn__ipaddress_loginattempt.GetValueOrDefault();
+            get => __pbn__ipaddress_loginattempt ?? "";
             set => __pbn__ipaddress_loginattempt = value;
         }
         public bool ShouldSerializeipaddress_loginattempt() => __pbn__ipaddress_loginattempt != null;
         public void Resetipaddress_loginattempt() => __pbn__ipaddress_loginattempt = null;
-        private uint? __pbn__ipaddress_loginattempt;
+        private string __pbn__ipaddress_loginattempt;
 
         [global::ProtoBuf.ProtoMember(2)]
         [global::System.ComponentModel.DefaultValue("")]
@@ -549,14 +551,15 @@ namespace SteamKit2.Internal
         private string __pbn__cityname_loginattempt;
 
         [global::ProtoBuf.ProtoMember(5)]
-        public uint ipaddress_actual
+        [global::System.ComponentModel.DefaultValue("")]
+        public string ipaddress_actual
         {
-            get => __pbn__ipaddress_actual.GetValueOrDefault();
+            get => __pbn__ipaddress_actual ?? "";
             set => __pbn__ipaddress_actual = value;
         }
         public bool ShouldSerializeipaddress_actual() => __pbn__ipaddress_actual != null;
         public void Resetipaddress_actual() => __pbn__ipaddress_actual = null;
-        private uint? __pbn__ipaddress_actual;
+        private string __pbn__ipaddress_actual;
 
         [global::ProtoBuf.ProtoMember(6)]
         [global::System.ComponentModel.DefaultValue("")]
@@ -713,5 +716,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

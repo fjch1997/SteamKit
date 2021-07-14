@@ -345,6 +345,8 @@ enum EPaymentMethod
 	StorePromotion = 131; removed "renamed to Promotional"
 	Promotional = 131;
 	MasterSubscription = 134;
+	Payco = 135;
+	MobileWalletJapan = 136;
 	OEMTicket = 256;
 	Split = 512;
 	Complimentary = 1024;
@@ -700,6 +702,8 @@ enum EOSType
 	Macos1013 = -84;
 	Macos1014 = -83;
 	Macos1015 = -82;
+	MacOS1016 = -81;
+	MacOS11 = -80;
 	MacOSMax = -1;
 
 	LinuxUnknown = -203;
@@ -720,6 +724,9 @@ enum EOSType
 	Linux414 = -188;
 	Linux419 = -187;
 	Linux5x = -186;
+	Linux54 = -185;
+	Linux6x = -184;
+	Linux7x = -183;
 	LinuxMax = -101;
 
 	WinUnknown = 0;
@@ -745,8 +752,9 @@ enum EOSType
 	Win10 = 16; removed "renamed to Windows10"
 	Windows10 = 16;
 	Win2016 = 17;
+	Win2019 = 18;
 
-	WinMAX = 18;
+	WinMAX = 19;
 };
 
 enum EServerType
@@ -915,6 +923,14 @@ enum EBillingType
 	FreeCommercialLicense = 15;
 
 	NumBillingTypes = 16;
+};
+
+enum EPackageStatus
+{
+	Available = 0;
+	Preorder = 1;
+	Unavailable = 2;
+	Invalid = 3;
 };
 
 enum EActivationCodeClass<uint>
@@ -1358,7 +1374,7 @@ enum EAppType flags
 	Beta = 65536;
 
 	Shortcut = 1073741824;
-	DepotOnly = -2147483648;
+	DepotOnly = -2147483648; obsolete
 };
 
 enum EChatRoomGroupType

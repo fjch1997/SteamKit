@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -207,6 +207,16 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resetdisable_experimental_gameplay() => __pbn__disable_experimental_gameplay = null;
         private bool? __pbn__disable_experimental_gameplay;
 
+        [global::ProtoBuf.ProtoMember(21)]
+        public uint custom_game_difficulty_mask
+        {
+            get => __pbn__custom_game_difficulty_mask.GetValueOrDefault();
+            set => __pbn__custom_game_difficulty_mask = value;
+        }
+        public bool ShouldSerializecustom_game_difficulty_mask() => __pbn__custom_game_difficulty_mask != null;
+        public void Resetcustom_game_difficulty_mask() => __pbn__custom_game_difficulty_mask = null;
+        private uint? __pbn__custom_game_difficulty_mask;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -281,6 +291,16 @@ namespace SteamKit2.GC.Dota.Internal
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public bool accept_cooldown
+        {
+            get => __pbn__accept_cooldown.GetValueOrDefault();
+            set => __pbn__accept_cooldown = value;
+        }
+        public bool ShouldSerializeaccept_cooldown() => __pbn__accept_cooldown != null;
+        public void Resetaccept_cooldown() => __pbn__accept_cooldown = null;
+        private bool? __pbn__accept_cooldown;
 
     }
 
@@ -835,6 +855,9 @@ namespace SteamKit2.GC.Dota.Internal
         public bool ShouldSerializeleague_node_id() => __pbn__league_node_id != null;
         public void Resetleague_node_id() => __pbn__league_node_id = null;
         private uint? __pbn__league_node_id;
+
+        [global::ProtoBuf.ProtoMember(50)]
+        public global::System.Collections.Generic.List<uint> requested_hero_ids { get; } = new global::System.Collections.Generic.List<uint>();
 
     }
 
@@ -2794,9 +2817,12 @@ namespace SteamKit2.GC.Dota.Internal
         k_EStartFindingMatchResult_NoQueuePoints = 127,
         k_EStartFindingMatchResult_MemberMissingGauntletFlag = 128,
         k_EStartFindingMatchResult_MemberGauntletTooRecent = 129,
+        k_EStartFindingMatchResult_DifficultyNotUnlocked = 130,
+        k_EStartFindingMatchResult_CoachesNotAllowedInParty = 131,
+        k_EStartFindingMatchResult_MatchmakingBusy = 132,
     }
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

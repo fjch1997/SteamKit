@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -310,6 +310,16 @@ namespace SteamKit2.GC.Dota.Internal
         public bool ShouldSerializeweekend_tourney_bracket_round() => __pbn__weekend_tourney_bracket_round != null;
         public void Resetweekend_tourney_bracket_round() => __pbn__weekend_tourney_bracket_round = null;
         private uint? __pbn__weekend_tourney_bracket_round;
+
+        [global::ProtoBuf.ProtoMember(32)]
+        public uint custom_game_difficulty
+        {
+            get => __pbn__custom_game_difficulty.GetValueOrDefault();
+            set => __pbn__custom_game_difficulty = value;
+        }
+        public bool ShouldSerializecustom_game_difficulty() => __pbn__custom_game_difficulty != null;
+        public void Resetcustom_game_difficulty() => __pbn__custom_game_difficulty = null;
+        private uint? __pbn__custom_game_difficulty;
 
         [global::ProtoBuf.ProtoContract()]
         public partial class Player : global::ProtoBuf.IExtensible
@@ -1321,5 +1331,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

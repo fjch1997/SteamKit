@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Underlords.Internal
 {
 
@@ -571,6 +571,16 @@ namespace SteamKit2.GC.Underlords.Internal
         public bool ShouldSerializegold_from_victory() => __pbn__gold_from_victory != null;
         public void Resetgold_from_victory() => __pbn__gold_from_victory = null;
         private uint? __pbn__gold_from_victory;
+
+        [global::ProtoBuf.ProtoMember(17)]
+        public bool free_reroll
+        {
+            get => __pbn__free_reroll.GetValueOrDefault();
+            set => __pbn__free_reroll = value;
+        }
+        public bool ShouldSerializefree_reroll() => __pbn__free_reroll != null;
+        public void Resetfree_reroll() => __pbn__free_reroll = null;
+        private bool? __pbn__free_reroll;
 
         [global::ProtoBuf.ProtoMember(2)]
         public uint opponent_player_slot
@@ -6537,20 +6547,20 @@ namespace SteamKit2.GC.Underlords.Internal
         EUnitKeyword_Summoner = 39,
         EUnitKeyword_SpiritBrother = 40,
         EUnitKeyword_Meepo = 41,
-        EUnitKeyword_Monk = 42,
         EUnitKeyword_Brawler = 43,
-        EUnitKeyword_Invoker = 44,
-        EUnitKeyword_Sorceror = 45,
         EUnitKeyword_Guardian = 46,
-        EUnitKeyword_Commander = 47,
-        EUnitKeyword_Faerie = 48,
-        EUnitKeyword_Necromancer = 49,
         EUnitKeyword_Champion = 50,
         EUnitKeyword_Wisp = 51,
         EUnitKeyword_Brutal = 52,
         EUnitKeyword_Healer = 53,
         EUnitKeyword_Vigilant = 54,
         EUnitKeyword_Void = 55,
+        EUnitKeyword_Fallen = 42,
+        EUnitKeyword_Wild = 44,
+        EUnitKeyword_Swordsman = 45,
+        EUnitKeyword_Rogue = 47,
+        EUnitKeyword_Poisoner = 48,
+        EUnitKeyword_Magus = 49,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -6822,5 +6832,5 @@ namespace SteamKit2.GC.Underlords.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

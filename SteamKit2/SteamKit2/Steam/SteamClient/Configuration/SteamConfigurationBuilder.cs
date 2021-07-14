@@ -36,7 +36,7 @@ namespace SteamKit2
 
                 ProtocolTypes = ProtocolTypes.Tcp,
 
-                ServerListProvider = new NullServerListProvider(),
+                ServerListProvider = new MemoryServerListProvider(),
 
                 Universe = EUniverse.Public,
 

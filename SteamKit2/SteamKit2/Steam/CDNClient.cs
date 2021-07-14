@@ -83,6 +83,24 @@ namespace SteamKit2
             /// Gets the number of entries this server is worth.
             /// </summary>
             public int NumEntries { get; internal set; }
+            /// <summary>
+            /// Gets the preferred server status.
+            /// </summary>
+            public bool PreferredServer { get; internal set; }
+
+            /// <summary>
+            /// Gets the download proxy status.
+            /// </summary>
+            public bool UseAsProxy { get; internal set; }
+            /// <summary>
+            /// Gets the transformation template applied to request paths.
+            /// </summary>
+            public string? ProxyRequestPathTemplate { get; internal set; }
+
+            /// <summary>
+            /// Gets the list of app ids this server can be used with.
+            /// </summary>
+            public uint[]? AllowedAppIds { get; internal set; }
 
             /// <summary>
             /// Performs an implicit conversion from <see cref="System.Net.IPEndPoint"/> to <see cref="SteamKit2.CDNClient.Server"/>.
@@ -223,6 +241,10 @@ namespace SteamKit2
         /// Default timeout to use when making requests
         /// </summary>
         public static TimeSpan RequestTimeout = TimeSpan.FromSeconds( 10 );
+        /// <summary>
+        /// Default timeout to use when reading the response body
+        /// </summary>
+        public static TimeSpan ResponseBodyTimeout = TimeSpan.FromSeconds( 60 );
 
 
         /// <summary>
@@ -293,10 +315,11 @@ namespace SteamKit2
         /// The depot decryption key for the depot that will be downloaded.
         /// This is used for decrypting filenames (if needed) in depot manifests, and processing depot chunks.
         /// </param>
+        /// <param name="proxyServer">Optional content server marked as UseAsProxy which transforms the request.</param>
         /// <returns>A <see cref="DepotManifest"/> instance that contains information about the files present within a depot.</returns>
         /// <exception cref="HttpRequestException">An network error occurred when performing the request.</exception>
         /// <exception cref="SteamKitWebRequestException">A network error occurred when performing the request.</exception>
-        public async Task<DepotManifest> DownloadManifestAsync( uint depotId, ulong manifestId, string host, string cdnAuthToken, byte[]? depotKey = null )
+        public async Task<DepotManifest> DownloadManifestAsync( uint depotId, ulong manifestId, string host, string cdnAuthToken, byte[]? depotKey = null, Server? proxyServer = null )
         {
             var server = new Server
             {
@@ -306,7 +329,7 @@ namespace SteamKit2
                 Port = 80
             };
 
-            return await DownloadManifestAsync( depotId, manifestId, server, cdnAuthToken, depotKey ).ConfigureAwait( false );
+            return await DownloadManifestAsync( depotId, manifestId, server, cdnAuthToken, depotKey, proxyServer ).ConfigureAwait( false );
         }
 
         /// <summary>
@@ -320,18 +343,19 @@ namespace SteamKit2
         /// The depot decryption key for the depot that will be downloaded.
         /// This is used for decrypting filenames (if needed) in depot manifests, and processing depot chunks.
         /// </param>
+        /// <param name="proxyServer">Optional content server marked as UseAsProxy which transforms the request.</param>
         /// <returns>A <see cref="DepotManifest"/> instance that contains information about the files present within a depot.</returns>
         /// <exception cref="System.ArgumentNullException"><see ref="server"/> was null.</exception>
         /// <exception cref="HttpRequestException">An network error occurred when performing the request.</exception>
         /// <exception cref="SteamKitWebRequestException">A network error occurred when performing the request.</exception>
-        public async Task<DepotManifest> DownloadManifestAsync( uint depotId, ulong manifestId, Server server, string? cdnAuthToken, byte[]? depotKey )
+        public async Task<DepotManifest> DownloadManifestAsync( uint depotId, ulong manifestId, Server server, string? cdnAuthToken, byte[]? depotKey, Server? proxyServer = null )
         {
             if ( server == null )
             {
                 throw new ArgumentNullException( nameof( server ) );
             }
 
-            var manifestData = await DoRawCommandAsync( server, string.Format( "depot/{0}/manifest/{1}/5", depotId, manifestId ), cdnAuthToken ).ConfigureAwait( false );
+            var manifestData = await DoRawCommandAsync( server, string.Format( "depot/{0}/manifest/{1}/5", depotId, manifestId ), cdnAuthToken, proxyServer ).ConfigureAwait( false );
 
             manifestData = ZipUtil.Decompress( manifestData );
 
@@ -396,11 +420,12 @@ namespace SteamKit2
         /// The depot decryption key for the depot that will be downloaded.
         /// This is used for decrypting filenames (if needed) in depot manifests, and processing depot chunks.
         /// </param>
+        /// <param name="proxyServer">Optional content server marked as UseAsProxy which transforms the request.</param>
         /// <exception cref="System.ArgumentNullException">chunk's <see cref="DepotManifest.ChunkData.ChunkID"/> was null.</exception>
         /// <exception cref="System.IO.InvalidDataException">Thrown if the downloaded data does not match the expected length.</exception>
         /// <exception cref="HttpRequestException">An network error occurred when performing the request.</exception>
         /// <exception cref="SteamKitWebRequestException">A network error occurred when performing the request.</exception>
-        public async Task<DepotChunk> DownloadDepotChunkAsync( uint depotId, DepotManifest.ChunkData chunk, string host, string cdnAuthToken, byte[]? depotKey = null)
+        public async Task<DepotChunk> DownloadDepotChunkAsync( uint depotId, DepotManifest.ChunkData chunk, string host, string cdnAuthToken, byte[]? depotKey = null, Server? proxyServer = null )
         {
             var server = new Server
             {
@@ -432,11 +457,12 @@ namespace SteamKit2
         /// The depot decryption key for the depot that will be downloaded.
         /// This is used for decrypting filenames (if needed) in depot manifests, and processing depot chunks.
         /// </param>
+        /// <param name="proxyServer">Optional content server marked as UseAsProxy which transforms the request.</param>
         /// <exception cref="System.ArgumentNullException">chunk's <see cref="DepotManifest.ChunkData.ChunkID"/> was null.</exception>
         /// <exception cref="System.IO.InvalidDataException">Thrown if the downloaded data does not match the expected length.</exception>
         /// <exception cref="HttpRequestException">An network error occurred when performing the request.</exception>
         /// <exception cref="SteamKitWebRequestException">A network error occurred when performing the request.</exception>
-        public async Task<DepotChunk> DownloadDepotChunkAsync( uint depotId, DepotManifest.ChunkData chunk, Server server, string? cdnAuthToken, byte[]? depotKey )
+        public async Task<DepotChunk> DownloadDepotChunkAsync( uint depotId, DepotManifest.ChunkData chunk, Server server, string? cdnAuthToken, byte[]? depotKey, Server? proxyServer = null )
         {
             if ( server == null )
             {
@@ -455,7 +481,7 @@ namespace SteamKit2
 
             var chunkID = Utils.EncodeHexString( chunk.ChunkID );
 
-            var chunkData = await DoRawCommandAsync( server, string.Format( "depot/{0}/chunk/{1}", depotId, chunkID ), cdnAuthToken ).ConfigureAwait( false );
+            var chunkData = await DoRawCommandAsync( server, string.Format( "depot/{0}/chunk/{1}", depotId, chunkID ), cdnAuthToken, proxyServer ).ConfigureAwait( false );
 
             // assert that lengths match only if the chunk has a length assigned.
             if ( chunk.CompressedLength != default( uint ) && chunkData.Length != chunk.CompressedLength )
@@ -482,9 +508,9 @@ namespace SteamKit2
             httpClient.Dispose();
         }
 
-        async Task<byte[]> DoRawCommandAsync( Server server, string command, string? args )
+        async Task<byte[]> DoRawCommandAsync( Server server, string command, string? args, Server? proxyServer )
         {
-            var url = BuildCommand( server, command, args ?? string.Empty );
+            var url = BuildCommand( server, command, args ?? string.Empty, proxyServer );
             using var request = new HttpRequestMessage( HttpMethod.Get, url );
 
             using ( var cts = new CancellationTokenSource() )
@@ -493,15 +519,24 @@ namespace SteamKit2
 
                 try
                 {
-                    var response = await httpClient.SendAsync( request, cts.Token ).ConfigureAwait( false );
+                    using var response = await httpClient.SendAsync( request, HttpCompletionOption.ResponseHeadersRead, cts.Token ).ConfigureAwait( false );
 
                     if ( !response.IsSuccessStatusCode )
                     {
                         throw new SteamKitWebRequestException( $"Response status code does not indicate success: {response.StatusCode:D} ({response.ReasonPhrase}).", response );
                     }
 
-                    var responseData = await response.Content.ReadAsByteArrayAsync().ConfigureAwait( false );
-                    return responseData;
+                    // .NET 5.0 has an override of ReadAsByteArrayAsync that allows a CancellationTokenSource to be supplied
+                    cts.CancelAfter( ResponseBodyTimeout );
+
+                    var contentLength = response.Content.Headers.ContentLength;
+
+                    using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait( false );
+                    using var ms = new MemoryStream( ( int )contentLength.GetValueOrDefault() );
+
+                    await responseStream.CopyToAsync( ms, 81920, cts.Token ).ConfigureAwait( false );
+                    
+                    return ms.ToArray();
                 }
                 catch ( Exception ex )
                 {
@@ -511,7 +546,7 @@ namespace SteamKit2
             }
         }
 
-        static Uri BuildCommand( Server server, string command, string args )
+        static Uri BuildCommand( Server server, string command, string args, Server? proxyServer )
         {
             var uriBuilder = new UriBuilder
             {
@@ -521,6 +556,17 @@ namespace SteamKit2
                 Path = command,
                 Query = args
             };
+
+            if ( proxyServer != null && proxyServer.UseAsProxy && proxyServer.ProxyRequestPathTemplate != null )
+            {
+                var pathTemplate = proxyServer.ProxyRequestPathTemplate;
+                pathTemplate = pathTemplate.Replace( "%host%", uriBuilder.Host );
+                pathTemplate = pathTemplate.Replace( "%path%", $"/{uriBuilder.Path}" );
+                uriBuilder.Scheme = proxyServer.Protocol == CDNClient.Server.ConnectionProtocol.HTTP ? "http" : "https";
+                uriBuilder.Host = proxyServer.VHost;
+                uriBuilder.Port = proxyServer.Port;
+                uriBuilder.Path = pathTemplate;
+            }
 
             return uriBuilder.Uri;
         }
