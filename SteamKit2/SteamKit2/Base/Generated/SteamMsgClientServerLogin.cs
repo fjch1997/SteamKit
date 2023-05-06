@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -15,6 +15,16 @@ namespace SteamKit2.Internal
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public bool send_reply
+        {
+            get => __pbn__send_reply.GetValueOrDefault();
+            set => __pbn__send_reply = value;
+        }
+        public bool ShouldSerializesend_reply() => __pbn__send_reply != null;
+        public void Resetsend_reply() => __pbn__send_reply = null;
+        private bool? __pbn__send_reply;
 
     }
 
@@ -122,6 +132,25 @@ namespace SteamKit2.Internal
         public bool ShouldSerializehmac() => __pbn__hmac != null;
         public void Resethmac() => __pbn__hmac = null;
         private byte[] __pbn__hmac;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CMsgClientHello : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint protocol_version
+        {
+            get => __pbn__protocol_version.GetValueOrDefault();
+            set => __pbn__protocol_version = value;
+        }
+        public bool ShouldSerializeprotocol_version() => __pbn__protocol_version != null;
+        public void Resetprotocol_version() => __pbn__protocol_version = null;
+        private uint? __pbn__protocol_version;
 
     }
 
@@ -282,10 +311,10 @@ namespace SteamKit2.Internal
         private byte[] __pbn__machine_id;
 
         [global::ProtoBuf.ProtoMember(31)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint launcher_type
         {
-            get => __pbn__launcher_type ?? 0;
+            get => __pbn__launcher_type ?? 0u;
             set => __pbn__launcher_type = value;
         }
         public bool ShouldSerializelauncher_type() => __pbn__launcher_type != null;
@@ -293,10 +322,10 @@ namespace SteamKit2.Internal
         private uint? __pbn__launcher_type;
 
         [global::ProtoBuf.ProtoMember(32)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint ui_mode
         {
-            get => __pbn__ui_mode ?? 0;
+            get => __pbn__ui_mode ?? 0u;
             set => __pbn__ui_mode = value;
         }
         public bool ShouldSerializeui_mode() => __pbn__ui_mode != null;
@@ -304,10 +333,10 @@ namespace SteamKit2.Internal
         private uint? __pbn__ui_mode;
 
         [global::ProtoBuf.ProtoMember(33)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint chat_mode
         {
-            get => __pbn__chat_mode ?? 0;
+            get => __pbn__chat_mode ?? 0u;
             set => __pbn__chat_mode = value;
         }
         public bool ShouldSerializechat_mode() => __pbn__chat_mode != null;
@@ -664,6 +693,47 @@ namespace SteamKit2.Internal
         public void Resetdisable_partner_autogrants() => __pbn__disable_partner_autogrants = null;
         private bool? __pbn__disable_partner_autogrants;
 
+        [global::ProtoBuf.ProtoMember(107)]
+        public bool is_steam_deck
+        {
+            get => __pbn__is_steam_deck.GetValueOrDefault();
+            set => __pbn__is_steam_deck = value;
+        }
+        public bool ShouldSerializeis_steam_deck() => __pbn__is_steam_deck != null;
+        public void Resetis_steam_deck() => __pbn__is_steam_deck = null;
+        private bool? __pbn__is_steam_deck;
+
+        [global::ProtoBuf.ProtoMember(108)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string access_token
+        {
+            get => __pbn__access_token ?? "";
+            set => __pbn__access_token = value;
+        }
+        public bool ShouldSerializeaccess_token() => __pbn__access_token != null;
+        public void Resetaccess_token() => __pbn__access_token = null;
+        private string __pbn__access_token;
+
+        [global::ProtoBuf.ProtoMember(109)]
+        public bool is_chrome_os
+        {
+            get => __pbn__is_chrome_os.GetValueOrDefault();
+            set => __pbn__is_chrome_os = value;
+        }
+        public bool ShouldSerializeis_chrome_os() => __pbn__is_chrome_os != null;
+        public void Resetis_chrome_os() => __pbn__is_chrome_os = null;
+        private bool? __pbn__is_chrome_os;
+
+        [global::ProtoBuf.ProtoMember(110)]
+        public bool is_tesla
+        {
+            get => __pbn__is_tesla.GetValueOrDefault();
+            set => __pbn__is_tesla = value;
+        }
+        public bool ShouldSerializeis_tesla() => __pbn__is_tesla != null;
+        public void Resetis_tesla() => __pbn__is_tesla = null;
+        private bool? __pbn__is_tesla;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -685,24 +755,24 @@ namespace SteamKit2.Internal
         private int? __pbn__eresult;
 
         [global::ProtoBuf.ProtoMember(2)]
-        public int out_of_game_heartbeat_seconds
+        public int legacy_out_of_game_heartbeat_seconds
         {
-            get => __pbn__out_of_game_heartbeat_seconds.GetValueOrDefault();
-            set => __pbn__out_of_game_heartbeat_seconds = value;
+            get => __pbn__legacy_out_of_game_heartbeat_seconds.GetValueOrDefault();
+            set => __pbn__legacy_out_of_game_heartbeat_seconds = value;
         }
-        public bool ShouldSerializeout_of_game_heartbeat_seconds() => __pbn__out_of_game_heartbeat_seconds != null;
-        public void Resetout_of_game_heartbeat_seconds() => __pbn__out_of_game_heartbeat_seconds = null;
-        private int? __pbn__out_of_game_heartbeat_seconds;
+        public bool ShouldSerializelegacy_out_of_game_heartbeat_seconds() => __pbn__legacy_out_of_game_heartbeat_seconds != null;
+        public void Resetlegacy_out_of_game_heartbeat_seconds() => __pbn__legacy_out_of_game_heartbeat_seconds = null;
+        private int? __pbn__legacy_out_of_game_heartbeat_seconds;
 
         [global::ProtoBuf.ProtoMember(3)]
-        public int in_game_heartbeat_seconds
+        public int heartbeat_seconds
         {
-            get => __pbn__in_game_heartbeat_seconds.GetValueOrDefault();
-            set => __pbn__in_game_heartbeat_seconds = value;
+            get => __pbn__heartbeat_seconds.GetValueOrDefault();
+            set => __pbn__heartbeat_seconds = value;
         }
-        public bool ShouldSerializein_game_heartbeat_seconds() => __pbn__in_game_heartbeat_seconds != null;
-        public void Resetin_game_heartbeat_seconds() => __pbn__in_game_heartbeat_seconds = null;
-        private int? __pbn__in_game_heartbeat_seconds;
+        public bool ShouldSerializeheartbeat_seconds() => __pbn__heartbeat_seconds != null;
+        public void Resetheartbeat_seconds() => __pbn__heartbeat_seconds = null;
+        private int? __pbn__heartbeat_seconds;
 
         [global::ProtoBuf.ProtoMember(4)]
         public uint deprecated_public_ip
@@ -910,6 +980,27 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeforce_client_update_check() => __pbn__force_client_update_check != null;
         public void Resetforce_client_update_check() => __pbn__force_client_update_check = null;
         private bool? __pbn__force_client_update_check;
+
+        [global::ProtoBuf.ProtoMember(29)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string agreement_session_url
+        {
+            get => __pbn__agreement_session_url ?? "";
+            set => __pbn__agreement_session_url = value;
+        }
+        public bool ShouldSerializeagreement_session_url() => __pbn__agreement_session_url != null;
+        public void Resetagreement_session_url() => __pbn__agreement_session_url = null;
+        private string __pbn__agreement_session_url;
+
+        [global::ProtoBuf.ProtoMember(30)]
+        public ulong token_id
+        {
+            get => __pbn__token_id.GetValueOrDefault();
+            set => __pbn__token_id = value;
+        }
+        public bool ShouldSerializetoken_id() => __pbn__token_id != null;
+        public void Resettoken_id() => __pbn__token_id = null;
+        private ulong? __pbn__token_id;
 
     }
 
@@ -1123,16 +1214,6 @@ namespace SteamKit2.Internal
         public void Resetfacebook_name() => __pbn__facebook_name = null;
         private string __pbn__facebook_name;
 
-        [global::ProtoBuf.ProtoMember(14)]
-        public bool steamguard_notify_newmachines
-        {
-            get => __pbn__steamguard_notify_newmachines.GetValueOrDefault();
-            set => __pbn__steamguard_notify_newmachines = value;
-        }
-        public bool ShouldSerializesteamguard_notify_newmachines() => __pbn__steamguard_notify_newmachines != null;
-        public void Resetsteamguard_notify_newmachines() => __pbn__steamguard_notify_newmachines = null;
-        private bool? __pbn__steamguard_notify_newmachines;
-
         [global::ProtoBuf.ProtoMember(15)]
         [global::System.ComponentModel.DefaultValue("")]
         public string steamguard_machine_name_user_chosen
@@ -1226,5 +1307,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

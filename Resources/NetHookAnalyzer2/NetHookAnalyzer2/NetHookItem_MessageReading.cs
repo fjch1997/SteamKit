@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using NetHookAnalyzer2.Specializations;
 using ProtoBuf;
 using ProtoBuf.Meta;
@@ -10,8 +9,24 @@ using SteamKit2.Internal;
 
 namespace NetHookAnalyzer2
 {
-	partial class NetHookItemTreeBuilder
+	partial class NetHookItem
 	{
+		public (uint EMsg, ISteamSerializableHeader Header, object Body, byte[] Payload) ReadFile()
+		{
+			using var stream = OpenStream();
+			return ReadFile( stream );
+		}
+
+		public static (uint EMsg, ISteamSerializableHeader Header, object Body, byte[] Payload) ReadFile(Stream stream)
+		{
+			var rawEMsg = PeekUInt( stream );
+			var header = ReadHeader( rawEMsg, stream );
+			var body = ReadBody( rawEMsg, stream, header );
+			var payload = ReadPayload( stream );
+
+			return (rawEMsg, header, body, payload);
+		}
+
 		static ISteamSerializableHeader ReadHeader(uint rawEMsg, Stream stream)
 		{
 			ISteamSerializableHeader header;
@@ -52,12 +67,23 @@ namespace NetHookAnalyzer2
 			switch (eMsg)
 			{
 				case EMsg.ServiceMethod:
+				case EMsg.ServiceMethodSendToClient:
 				case EMsg.ServiceMethodCallFromClient:
+				case EMsg.ServiceMethodCallFromClientNonAuthed:
 					body = UnifiedMessagingHelpers.ReadServiceMethodBody(targetJobName.Value, stream, x => x.GetParameters().First().ParameterType);
 					break;
 
 				case EMsg.ServiceMethodResponse:
 					body = UnifiedMessagingHelpers.ReadServiceMethodBody(targetJobName.Value, stream, x => x.ReturnType);
+					break;
+
+				case EMsg.ClientServiceMethodLegacy:
+					var tempBody = (CMsgClientServiceMethodLegacy) RuntimeTypeModel.Default.Deserialize( stream, null, typeof(CMsgClientServiceMethodLegacy) );
+					using ( var ms = new MemoryStream( tempBody.serialized_method ) )
+					{
+						body = UnifiedMessagingHelpers.ReadServiceMethodBody( tempBody.method_name, ms, x => x.GetParameters().First().ParameterType );
+					}
+
 					break;
 
 				default:

@@ -28,6 +28,7 @@ namespace SteamKit2
         {
             asyncJobs.TryAdd( asyncJob, asyncJob );
         }
+
         /// <summary>
         /// Passes a callback to a pending async job.
         /// If the given callback completes the job, the job is removed from this manager.
@@ -50,7 +51,7 @@ namespace SteamKit2
             if ( jobFinished )
             {
                 // if the job is finished, we can stop tracking it
-                asyncJobs.TryRemove( jobId, out asyncJob );
+                asyncJobs.TryRemove( jobId, out _ );
             }
         }
 
@@ -132,8 +133,7 @@ namespace SteamKit2
                 {
                     job.SetFailed( dueToRemoteFailure: false );
 
-                    AsyncJob ignored;
-                    asyncJobs.TryRemove( job, out ignored );
+                    asyncJobs.TryRemove( job, out _);
                 }
             }
         }
@@ -147,8 +147,8 @@ namespace SteamKit2
         /// <returns></returns>
         AsyncJob? GetJob( JobID jobId, bool andRemove = false )
         {
-            AsyncJob asyncJob;
-            bool foundJob = false;
+            AsyncJob? asyncJob;
+            bool foundJob;
 
             if ( andRemove )
             {

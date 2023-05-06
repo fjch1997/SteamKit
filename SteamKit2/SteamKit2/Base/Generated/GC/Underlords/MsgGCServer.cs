@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Underlords.Internal
 {
 
@@ -284,10 +284,10 @@ namespace SteamKit2.GC.Underlords.Internal
             private bool? __pbn__lords_elo_ignore;
 
             [global::ProtoBuf.ProtoMember(10)]
-            [global::System.ComponentModel.DefaultValue(1)]
+            [global::System.ComponentModel.DefaultValue(1f)]
             public float level_score_change_mult
             {
-                get => __pbn__level_score_change_mult ?? 1;
+                get => __pbn__level_score_change_mult ?? 1f;
                 set => __pbn__level_score_change_mult = value;
             }
             public bool ShouldSerializelevel_score_change_mult() => __pbn__level_score_change_mult != null;
@@ -2319,5 +2319,5 @@ namespace SteamKit2.GC.Underlords.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -311,6 +311,16 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resetweekend_tourney_bracket_round() => __pbn__weekend_tourney_bracket_round = null;
         private uint? __pbn__weekend_tourney_bracket_round;
 
+        [global::ProtoBuf.ProtoMember(32)]
+        public uint custom_game_difficulty
+        {
+            get => __pbn__custom_game_difficulty.GetValueOrDefault();
+            set => __pbn__custom_game_difficulty = value;
+        }
+        public bool ShouldSerializecustom_game_difficulty() => __pbn__custom_game_difficulty != null;
+        public void Resetcustom_game_difficulty() => __pbn__custom_game_difficulty = null;
+        private uint? __pbn__custom_game_difficulty;
+
         [global::ProtoBuf.ProtoContract()]
         public partial class Player : global::ProtoBuf.IExtensible
         {
@@ -504,45 +514,6 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class CMsgClientToGCTopMatchesRequest : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1)]
-        public uint hero_id
-        {
-            get => __pbn__hero_id.GetValueOrDefault();
-            set => __pbn__hero_id = value;
-        }
-        public bool ShouldSerializehero_id() => __pbn__hero_id != null;
-        public void Resethero_id() => __pbn__hero_id = null;
-        private uint? __pbn__hero_id;
-
-        [global::ProtoBuf.ProtoMember(2)]
-        public uint player_account_id
-        {
-            get => __pbn__player_account_id.GetValueOrDefault();
-            set => __pbn__player_account_id = value;
-        }
-        public bool ShouldSerializeplayer_account_id() => __pbn__player_account_id != null;
-        public void Resetplayer_account_id() => __pbn__player_account_id = null;
-        private uint? __pbn__player_account_id;
-
-        [global::ProtoBuf.ProtoMember(3)]
-        public uint team_id
-        {
-            get => __pbn__team_id.GetValueOrDefault();
-            set => __pbn__team_id = value;
-        }
-        public bool ShouldSerializeteam_id() => __pbn__team_id != null;
-        public void Resetteam_id() => __pbn__team_id = null;
-        private uint? __pbn__team_id;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
     public partial class CMsgClientToGCTopLeagueMatchesRequest : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -615,120 +586,6 @@ namespace SteamKit2.GC.Dota.Internal
 
         [global::ProtoBuf.ProtoMember(1)]
         public global::System.Collections.Generic.List<CMsgDOTAMatchMinimal> matches { get; } = new global::System.Collections.Generic.List<CMsgDOTAMatchMinimal>();
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class CMsgClientToGCFindTopMatches : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1)]
-        public uint start_game
-        {
-            get => __pbn__start_game.GetValueOrDefault();
-            set => __pbn__start_game = value;
-        }
-        public bool ShouldSerializestart_game() => __pbn__start_game != null;
-        public void Resetstart_game() => __pbn__start_game = null;
-        private uint? __pbn__start_game;
-
-        [global::ProtoBuf.ProtoMember(2)]
-        public uint league_id
-        {
-            get => __pbn__league_id.GetValueOrDefault();
-            set => __pbn__league_id = value;
-        }
-        public bool ShouldSerializeleague_id() => __pbn__league_id != null;
-        public void Resetleague_id() => __pbn__league_id = null;
-        private uint? __pbn__league_id;
-
-        [global::ProtoBuf.ProtoMember(3)]
-        public uint hero_id
-        {
-            get => __pbn__hero_id.GetValueOrDefault();
-            set => __pbn__hero_id = value;
-        }
-        public bool ShouldSerializehero_id() => __pbn__hero_id != null;
-        public void Resethero_id() => __pbn__hero_id = null;
-        private uint? __pbn__hero_id;
-
-        [global::ProtoBuf.ProtoMember(4)]
-        public uint friend_id
-        {
-            get => __pbn__friend_id.GetValueOrDefault();
-            set => __pbn__friend_id = value;
-        }
-        public bool ShouldSerializefriend_id() => __pbn__friend_id != null;
-        public void Resetfriend_id() => __pbn__friend_id = null;
-        private uint? __pbn__friend_id;
-
-        [global::ProtoBuf.ProtoMember(5)]
-        public bool friend_list
-        {
-            get => __pbn__friend_list.GetValueOrDefault();
-            set => __pbn__friend_list = value;
-        }
-        public bool ShouldSerializefriend_list() => __pbn__friend_list != null;
-        public void Resetfriend_list() => __pbn__friend_list = null;
-        private bool? __pbn__friend_list;
-
-        [global::ProtoBuf.ProtoMember(6)]
-        public bool league_list
-        {
-            get => __pbn__league_list.GetValueOrDefault();
-            set => __pbn__league_list = value;
-        }
-        public bool ShouldSerializeleague_list() => __pbn__league_list != null;
-        public void Resetleague_list() => __pbn__league_list = null;
-        private bool? __pbn__league_list;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class CMsgGCToClientFindTopLeagueMatchesResponse : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1)]
-        public uint start_game
-        {
-            get => __pbn__start_game.GetValueOrDefault();
-            set => __pbn__start_game = value;
-        }
-        public bool ShouldSerializestart_game() => __pbn__start_game != null;
-        public void Resetstart_game() => __pbn__start_game = null;
-        private uint? __pbn__start_game;
-
-        [global::ProtoBuf.ProtoMember(2)]
-        public uint league_id
-        {
-            get => __pbn__league_id.GetValueOrDefault();
-            set => __pbn__league_id = value;
-        }
-        public bool ShouldSerializeleague_id() => __pbn__league_id != null;
-        public void Resetleague_id() => __pbn__league_id = null;
-        private uint? __pbn__league_id;
-
-        [global::ProtoBuf.ProtoMember(3)]
-        public uint hero_id
-        {
-            get => __pbn__hero_id.GetValueOrDefault();
-            set => __pbn__hero_id = value;
-        }
-        public bool ShouldSerializehero_id() => __pbn__hero_id != null;
-        public void Resethero_id() => __pbn__hero_id = null;
-        private uint? __pbn__hero_id;
-
-        [global::ProtoBuf.ProtoMember(4)]
-        public global::System.Collections.Generic.List<uint> match_ids { get; } = new global::System.Collections.Generic.List<uint>();
-
-        [global::ProtoBuf.ProtoMember(5)]
-        public global::System.Collections.Generic.List<CMsgDOTAMatch> matches { get; } = new global::System.Collections.Generic.List<CMsgDOTAMatch>();
 
     }
 
@@ -806,6 +663,7 @@ namespace SteamKit2.GC.Dota.Internal
             ERROR_SPECTATOR_SWITCHED_TEAMS = 11,
             ERROR_FRIENDS_ON_BOTH_SIDES = 12,
             ERROR_SPECTATOR_IN_THIS_LOBBY = 13,
+            ERROR_LOBBY_IS_LEAGUE = 14,
         }
 
     }
@@ -1321,5 +1179,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

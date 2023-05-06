@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -645,7 +645,7 @@ namespace SteamKit2.GC.Dota.Internal
         private uint? __pbn__rune_type;
 
         [global::ProtoBuf.ProtoMember(40)]
-        public global::System.Collections.Generic.List<uint> assist_players { get; } = new global::System.Collections.Generic.List<uint>();
+        public global::System.Collections.Generic.List<int> assist_players { get; } = new global::System.Collections.Generic.List<int>();
 
         [global::ProtoBuf.ProtoMember(41)]
         public bool is_heal_save
@@ -997,6 +997,46 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resetattacker_has_scepter() => __pbn__attacker_has_scepter = null;
         private bool? __pbn__attacker_has_scepter;
 
+        [global::ProtoBuf.ProtoMember(76)]
+        public uint neutral_camp_team
+        {
+            get => __pbn__neutral_camp_team.GetValueOrDefault();
+            set => __pbn__neutral_camp_team = value;
+        }
+        public bool ShouldSerializeneutral_camp_team() => __pbn__neutral_camp_team != null;
+        public void Resetneutral_camp_team() => __pbn__neutral_camp_team = null;
+        private uint? __pbn__neutral_camp_team;
+
+        [global::ProtoBuf.ProtoMember(77)]
+        public float regenerated_health
+        {
+            get => __pbn__regenerated_health.GetValueOrDefault();
+            set => __pbn__regenerated_health = value;
+        }
+        public bool ShouldSerializeregenerated_health() => __pbn__regenerated_health != null;
+        public void Resetregenerated_health() => __pbn__regenerated_health = null;
+        private float? __pbn__regenerated_health;
+
+        [global::ProtoBuf.ProtoMember(78)]
+        public bool will_reincarnate
+        {
+            get => __pbn__will_reincarnate.GetValueOrDefault();
+            set => __pbn__will_reincarnate = value;
+        }
+        public bool ShouldSerializewill_reincarnate() => __pbn__will_reincarnate != null;
+        public void Resetwill_reincarnate() => __pbn__will_reincarnate = null;
+        private bool? __pbn__will_reincarnate;
+
+        [global::ProtoBuf.ProtoMember(79)]
+        public bool uses_charges
+        {
+            get => __pbn__uses_charges.GetValueOrDefault();
+            set => __pbn__uses_charges = value;
+        }
+        public bool ShouldSerializeuses_charges() => __pbn__uses_charges != null;
+        public void Resetuses_charges() => __pbn__uses_charges = null;
+        private bool? __pbn__uses_charges;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1058,6 +1098,16 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resetaudit_action() => __pbn__audit_action = null;
         private uint? __pbn__audit_action;
 
+        [global::ProtoBuf.ProtoMember(6)]
+        public ulong audit_data
+        {
+            get => __pbn__audit_data.GetValueOrDefault();
+            set => __pbn__audit_data = value;
+        }
+        public bool ShouldSerializeaudit_data() => __pbn__audit_data != null;
+        public void Resetaudit_data() => __pbn__audit_data = null;
+        private ulong? __pbn__audit_data;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1105,7 +1155,8 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_GAMERULES_STATE_TEAM_SHOWCASE = 8,
         DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP = 9,
         DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD = 10,
-        DOTA_GAMERULES_STATE_LAST = 11,
+        DOTA_GAMERULES_STATE_SCENARIO_SETUP = 11,
+        DOTA_GAMERULES_STATE_LAST = 12,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1117,6 +1168,15 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_GC_TEAM_SPECTATOR = 3,
         DOTA_GC_TEAM_PLAYER_POOL = 4,
         DOTA_GC_TEAM_NOTEAM = 5,
+        DOTA_GC_TEAM_CUSTOM_1 = 6,
+        DOTA_GC_TEAM_CUSTOM_2 = 7,
+        DOTA_GC_TEAM_CUSTOM_3 = 8,
+        DOTA_GC_TEAM_CUSTOM_4 = 9,
+        DOTA_GC_TEAM_CUSTOM_5 = 10,
+        DOTA_GC_TEAM_CUSTOM_6 = 11,
+        DOTA_GC_TEAM_CUSTOM_7 = 12,
+        DOTA_GC_TEAM_CUSTOM_8 = 13,
+        DOTA_GC_TEAM_NEUTRALS = 14,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1153,7 +1213,28 @@ namespace SteamKit2.GC.Dota.Internal
         EVENT_ID_NEW_BLOOM_2020 = 28,
         EVENT_ID_INTERNATIONAL_2020 = 29,
         EVENT_ID_TEAM_FANDOM = 30,
-        EVENT_ID_COUNT = 31,
+        EVENT_ID_DIRETIDE_2020 = 31,
+        EVENT_ID_SPRING_2021 = 32,
+        EVENT_ID_FALL_2021 = 33,
+        EVENT_ID_TEAM_FANDOM_FALL_2021 = 34,
+        EVENT_ID_TEAM_2021_2022_TOUR2 = 35,
+        EVENT_ID_INTERNATIONAL_2022 = 36,
+        EVENT_ID_TEAM_2021_2022_TOUR3 = 37,
+        EVENT_ID_TEAM_INTERNATIONAL_2022 = 38,
+        EVENT_ID_PERMANENT_GRANTS = 39,
+        EVENT_ID_MUERTA_RELEASE_SPRING2023 = 40,
+        EVENT_ID_TEAM_2023_TOUR1 = 41,
+        EVENT_ID_TEAM_2023_TOUR2 = 42,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum ERankType
+    {
+        k_ERankType_Invalid = 0,
+        k_ERankType_Casual = 1,
+        k_ERankType_Ranked = 2,
+        k_ERankType_CasualLegacy = 3,
+        k_ERankType_RankedLegacy = 4,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1234,6 +1315,7 @@ namespace SteamKit2.GC.Dota.Internal
         DOTAChannelType_GameAll = 11,
         DOTAChannelType_GameAllies = 12,
         DOTAChannelType_GameSpectator = 13,
+        DOTAChannelType_GameCoaching = 14,
         DOTAChannelType_Cafe = 15,
         DOTAChannelType_CustomGame = 16,
         DOTAChannelType_Private = 17,
@@ -1242,6 +1324,16 @@ namespace SteamKit2.GC.Dota.Internal
         DOTAChannelType_HLTVSpectator = 20,
         DOTAChannelType_GameEvents = 21,
         DOTAChannelType_Trivia = 22,
+        DOTAChannelType_NewPlayer = 23,
+        DOTAChannelType_PrivateCoaching = 24,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum EChatSpecialPrivileges
+    {
+        k_EChatSpecialPrivileges_None = 0,
+        k_EChatSpecialPrivileges_Moderator = 1,
+        k_EChatSpecialPrivileges_SuperModerator = 2,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1290,13 +1382,6 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public enum DOTAGameVersion
-    {
-        GAME_VERSION_CURRENT = 0,
-        GAME_VERSION_STABLE = 1,
-    }
-
-    [global::ProtoBuf.ProtoContract()]
     public enum DOTAJoinLobbyResult
     {
         DOTA_JOIN_RESULT_SUCCESS = 0,
@@ -1342,17 +1427,6 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public enum DOTA_LobbyMemberXPBonus
-    {
-        DOTA_LobbyMemberXPBonus_DEFAULT = 0,
-        DOTA_LobbyMemberXPBonus_BATTLE_BOOSTER = 1,
-        DOTA_LobbyMemberXPBonus_SHARE_BONUS = 2,
-        DOTA_LobbyMemberXPBonus_PARTY = 3,
-        DOTA_LobbyMemberXPBonus_RECRUITMENT = 4,
-        DOTA_LobbyMemberXPBonus_PCBANG = 5,
-    }
-
-    [global::ProtoBuf.ProtoContract()]
     public enum DOTALobbyVisibility
     {
         DOTALobbyVisibility_Public = 0,
@@ -1366,13 +1440,6 @@ namespace SteamKit2.GC.Dota.Internal
         k_EDOTAPlayerMMRType_Invalid = 0,
         k_EDOTAPlayerMMRType_GeneralHidden = 1,
         k_EDOTAPlayerMMRType_GeneralCompetitive = 3,
-        k_EDOTAPlayerMMRType_SoloCompetitive2019 = 4,
-        k_EDOTAPlayerMMRType_1v1Competitive_UNUSED = 5,
-        k_EDOTAPlayerMMRType_GeneralSeasonalRanked = 6,
-        k_EDOTAPlayerMMRType_SoloSeasonalRanked = 7,
-        k_EDOTAPlayerMMRType_Competitive_Core = 8,
-        k_EDOTAPlayerMMRType_Competitive_Support = 9,
-        k_EDOTAPlayerMMRType_Competitive_Classic = 10,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1388,18 +1455,11 @@ namespace SteamKit2.GC.Dota.Internal
     {
         MATCH_TYPE_CASUAL = 0,
         MATCH_TYPE_COOP_BOTS = 1,
-        MATCH_TYPE_LEGACY_TEAM_RANKED = 2,
-        MATCH_TYPE_LEGACY_SOLO_QUEUE = 3,
         MATCH_TYPE_COMPETITIVE = 4,
         MATCH_TYPE_WEEKEND_TOURNEY = 5,
-        MATCH_TYPE_CASUAL_1V1 = 6,
         MATCH_TYPE_EVENT = 7,
-        MATCH_TYPE_SEASONAL_RANKED = 8,
-        MATCH_TYPE_LOWPRI_DEPRECATED = 9,
-        MATCH_TYPE_STEAM_GROUP = 10,
-        MATCH_TYPE_MUTATION = 11,
         MATCH_TYPE_COACHES_CHALLENGE = 12,
-        MATCH_TYPE_GAUNTLET = 13,
+        MATCH_TYPE_NEW_PLAYER_POOL = 14,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1414,6 +1474,7 @@ namespace SteamKit2.GC.Dota.Internal
         BOT_DIFFICULTY_EXTRA1 = 6,
         BOT_DIFFICULTY_EXTRA2 = 7,
         BOT_DIFFICULTY_EXTRA3 = 8,
+        BOT_DIFFICULTY_NPX = 9,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1445,6 +1506,7 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_BOT_MODE_COMPANION = 23,
         DOTA_BOT_MODE_TUTORIAL_BOSS = 24,
         DOTA_BOT_MODE_MINION = 25,
+        DOTA_BOT_MODE_OUTPOST = 26,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1478,6 +1540,16 @@ namespace SteamKit2.GC.Dota.Internal
         k_EMatchOutcome_Unknown = 0,
         k_EMatchOutcome_RadVictory = 2,
         k_EMatchOutcome_DireVictory = 3,
+        k_EMatchOutcome_NeutralVictory = 4,
+        k_EMatchOutcome_NoTeamWinner = 5,
+        k_EMatchOutcome_Custom1Victory = 6,
+        k_EMatchOutcome_Custom2Victory = 7,
+        k_EMatchOutcome_Custom3Victory = 8,
+        k_EMatchOutcome_Custom4Victory = 9,
+        k_EMatchOutcome_Custom5Victory = 10,
+        k_EMatchOutcome_Custom6Victory = 11,
+        k_EMatchOutcome_Custom7Victory = 12,
+        k_EMatchOutcome_Custom8Victory = 13,
         k_EMatchOutcome_NotScored_PoorNetworkConditions = 64,
         k_EMatchOutcome_NotScored_Leaver = 65,
         k_EMatchOutcome_NotScored_ServerCrash = 66,
@@ -1506,6 +1578,12 @@ namespace SteamKit2.GC.Dota.Internal
         k_EBadgeType_TI8_Midweek = 4,
         k_EBadgeType_TI8_Finals = 5,
         k_EBadgeType_TI8_AllEvent = 6,
+        k_EBadgeType_TI10 = 7,
+        k_EBadgeType_TI11_PlayoffsDay1 = 8,
+        k_EBadgeType_TI11_PlayoffsDay2 = 9,
+        k_EBadgeType_TI11_PlayoffsDay3 = 10,
+        k_EBadgeType_TI11_PlayoffsDay4 = 11,
+        k_EBadgeType_TI11_FinalsWeekend = 12,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1526,8 +1604,8 @@ namespace SteamKit2.GC.Dota.Internal
         LEAGUE_REGION_UNSET = 0,
         LEAGUE_REGION_NA = 1,
         LEAGUE_REGION_SA = 2,
-        LEAGUE_REGION_EUROPE = 3,
-        LEAGUE_REGION_CIS = 4,
+        LEAGUE_REGION_WEU = 3,
+        LEAGUE_REGION_EEU = 4,
         LEAGUE_REGION_CHINA = 5,
         LEAGUE_REGION_SEA = 6,
     }
@@ -1542,6 +1620,9 @@ namespace SteamKit2.GC.Dota.Internal
         LEAGUE_TIER_MAJOR = 4,
         LEAGUE_TIER_INTERNATIONAL = 5,
         LEAGUE_TIER_DPC_QUALIFIER = 6,
+        LEAGUE_TIER_DPC_LEAGUE_QUALIFIER = 7,
+        LEAGUE_TIER_DPC_LEAGUE = 8,
+        LEAGUE_TIER_DPC_LEAGUE_FINALS = 9,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1553,13 +1634,11 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public enum ELeagueFlags
+    public enum ELeagueDivision
     {
-        LEAGUE_FLAGS_NONE = 0,
-        LEAGUE_ACCEPTED_AGREEMENT = 1,
-        LEAGUE_PAYMENT_EMAIL_SENT = 2,
-        LEAGUE_COMPENDIUM_ALLOWED = 4,
-        LEAGUE_COMPENDIUM_PUBLIC = 8,
+        LEAGUE_DIVISION_UNSET = 0,
+        LEAGUE_DIVISION_I = 1,
+        LEAGUE_DIVISION_II = 2,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1605,6 +1684,7 @@ namespace SteamKit2.GC.Dota.Internal
         LEAGUE_AUDIT_ACTION_LEAGUE_REMOVE_INVITED_TEAM = 18,
         LEAGUE_AUDIT_ACTION_LEAGUE_STATUS_CHANGED = 19,
         LEAGUE_AUDIT_ACTION_LEAGUE_STREAM_EDIT = 20,
+        LEAGUE_AUDIT_ACTION_LEAGUE_TEAM_SWAP = 21,
         LEAGUE_AUDIT_ACTION_NODEGROUP_CREATE = 100,
         LEAGUE_AUDIT_ACTION_NODEGROUP_DESTROY = 101,
         LEAGUE_AUDIT_ACTION_NODEGROUP_ADD_TEAM = 102,
@@ -1674,6 +1754,7 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_COMBATLOG_SPELL_ABSORB = 40,
         DOTA_COMBATLOG_UNIT_TELEPORTED = 41,
         DOTA_COMBATLOG_KILL_EATER_EVENT = 42,
+        DOTA_COMBATLOG_NEUTRAL_ITEM_EARNED = 43,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1691,6 +1772,8 @@ namespace SteamKit2.GC.Dota.Internal
         DPC_PUSH_NOTIFICATION_MATCH_STARTING = 1,
         DPC_PUSH_NOTIFICATION_PLAYER_LEFT_TEAM = 10,
         DPC_PUSH_NOTIFICATION_PLAYER_JOINED_TEAM = 11,
+        DPC_PUSH_NOTIFICATION_PLAYER_JOINED_TEAM_AS_COACH = 12,
+        DPC_PUSH_NOTIFICATION_PLAYER_LEFT_TEAM_AS_COACH = 13,
         DPC_PUSH_NOTIFICATION_LEAGUE_RESULT = 20,
         DPC_PUSH_NOTIFICATION_PREDICTION_MATCHES_AVAILABLE = 30,
         DPC_PUSH_NOTIFICATION_PREDICTION_RESULT = 31,
@@ -1706,7 +1789,29 @@ namespace SteamKit2.GC.Dota.Internal
         k_eEventActionScoreMode_Min = 1,
     }
 
+    [global::ProtoBuf.ProtoContract()]
+    public enum EPlayerChallengeHistoryType
+    {
+        k_EPlayerChallengeHistoryType_Invalid = 0,
+        k_EPlayerChallengeHistoryType_KillEater = 1,
+        k_EPlayerChallengeHistoryType_DotaPlusRelic = 2,
+        k_EPlayerChallengeHistoryType_DotaPlusHeroPlayerChallenge = 3,
+        k_EPlayerChallengeHistoryType_InGameEventChallenge = 4,
+        k_EPlayerChallengeHistoryType_GuildContract = 5,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum EOverwatchReportReason
+    {
+        k_EOverwatchReportReason_Unknown = 0,
+        k_EOverwatchReportReason_Cheating = 1,
+        k_EOverwatchReportReason_Feeding = 2,
+        k_EOverwatchReportReason_Griefing = 3,
+        k_EOverwatchReportReason_Suspicious = 4,
+        k_EOverwatchReportReason_AbilityAbuse = 5,
+    }
+
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

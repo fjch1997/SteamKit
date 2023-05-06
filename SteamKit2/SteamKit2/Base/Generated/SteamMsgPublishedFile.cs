@@ -5,9 +5,47 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_Vote_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong publishedfileid
+        {
+            get => __pbn__publishedfileid.GetValueOrDefault();
+            set => __pbn__publishedfileid = value;
+        }
+        public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+        public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+        private ulong? __pbn__publishedfileid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public bool vote_up
+        {
+            get => __pbn__vote_up.GetValueOrDefault();
+            set => __pbn__vote_up = value;
+        }
+        public bool ShouldSerializevote_up() => __pbn__vote_up != null;
+        public void Resetvote_up() => __pbn__vote_up = null;
+        private bool? __pbn__vote_up;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_Vote_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
 
     [global::ProtoBuf.ProtoContract()]
     public partial class CPublishedFile_Subscribe_Request : global::ProtoBuf.IExtensible
@@ -160,6 +198,119 @@ namespace SteamKit2.Internal
         public bool ShouldSerializecan_subscribe() => __pbn__can_subscribe != null;
         public void Resetcan_subscribe() => __pbn__can_subscribe = null;
         private bool? __pbn__can_subscribe;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetSubSectionData_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong publishedfileid
+        {
+            get => __pbn__publishedfileid.GetValueOrDefault();
+            set => __pbn__publishedfileid = value;
+        }
+        public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+        public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+        private ulong? __pbn__publishedfileid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public bool for_table_of_contents
+        {
+            get => __pbn__for_table_of_contents.GetValueOrDefault();
+            set => __pbn__for_table_of_contents = value;
+        }
+        public bool ShouldSerializefor_table_of_contents() => __pbn__for_table_of_contents != null;
+        public void Resetfor_table_of_contents() => __pbn__for_table_of_contents = null;
+        private bool? __pbn__for_table_of_contents;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public ulong specific_sectionid
+        {
+            get => __pbn__specific_sectionid.GetValueOrDefault();
+            set => __pbn__specific_sectionid = value;
+        }
+        public bool ShouldSerializespecific_sectionid() => __pbn__specific_sectionid != null;
+        public void Resetspecific_sectionid() => __pbn__specific_sectionid = null;
+        private ulong? __pbn__specific_sectionid;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        [global::System.ComponentModel.DefaultValue(EPublishedFileRevision.k_EPublishedFileRevision_Default)]
+        public EPublishedFileRevision desired_revision
+        {
+            get => __pbn__desired_revision ?? EPublishedFileRevision.k_EPublishedFileRevision_Default;
+            set => __pbn__desired_revision = value;
+        }
+        public bool ShouldSerializedesired_revision() => __pbn__desired_revision != null;
+        public void Resetdesired_revision() => __pbn__desired_revision = null;
+        private EPublishedFileRevision? __pbn__desired_revision;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class PublishedFileSubSection : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong sectionid
+        {
+            get => __pbn__sectionid.GetValueOrDefault();
+            set => __pbn__sectionid = value;
+        }
+        public bool ShouldSerializesectionid() => __pbn__sectionid != null;
+        public void Resetsectionid() => __pbn__sectionid = null;
+        private ulong? __pbn__sectionid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string title
+        {
+            get => __pbn__title ?? "";
+            set => __pbn__title = value;
+        }
+        public bool ShouldSerializetitle() => __pbn__title != null;
+        public void Resettitle() => __pbn__title = null;
+        private string __pbn__title;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string description_text
+        {
+            get => __pbn__description_text ?? "";
+            set => __pbn__description_text = value;
+        }
+        public bool ShouldSerializedescription_text() => __pbn__description_text != null;
+        public void Resetdescription_text() => __pbn__description_text = null;
+        private string __pbn__description_text;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public uint sort_order
+        {
+            get => __pbn__sort_order.GetValueOrDefault();
+            set => __pbn__sort_order = value;
+        }
+        public bool ShouldSerializesort_order() => __pbn__sort_order != null;
+        public void Resetsort_order() => __pbn__sort_order = null;
+        private uint? __pbn__sort_order;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetSubSectionData_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<PublishedFileSubSection> sub_sections { get; } = new global::System.Collections.Generic.List<PublishedFileSubSection>();
 
     }
 
@@ -1133,6 +1284,9 @@ namespace SteamKit2.Internal
         public void Resetmaybe_inappropriate_violence() => __pbn__maybe_inappropriate_violence = null;
         private bool? __pbn__maybe_inappropriate_violence;
 
+        [global::ProtoBuf.ProtoMember(72)]
+        public global::System.Collections.Generic.List<EContentDescriptorID> content_descriptorids { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
+
         [global::ProtoBuf.ProtoMember(67)]
         public ulong revision_change_number
         {
@@ -1159,6 +1313,17 @@ namespace SteamKit2.Internal
 
         [global::ProtoBuf.ProtoMember(70)]
         public global::System.Collections.Generic.List<Reaction> reactions { get; } = new global::System.Collections.Generic.List<Reaction>();
+
+        [global::ProtoBuf.ProtoMember(71)]
+        [global::System.ComponentModel.DefaultValue(EBanContentCheckResult.k_EBanContentCheckResult_NotScanned)]
+        public EBanContentCheckResult ban_text_check_result
+        {
+            get => __pbn__ban_text_check_result ?? EBanContentCheckResult.k_EBanContentCheckResult_NotScanned;
+            set => __pbn__ban_text_check_result = value;
+        }
+        public bool ShouldSerializeban_text_check_result() => __pbn__ban_text_check_result != null;
+        public void Resetban_text_check_result() => __pbn__ban_text_check_result = null;
+        private EBanContentCheckResult? __pbn__ban_text_check_result;
 
         [global::ProtoBuf.ProtoContract()]
         public partial class Tag : global::ProtoBuf.IExtensible
@@ -1187,6 +1352,17 @@ namespace SteamKit2.Internal
             public bool ShouldSerializeadminonly() => __pbn__adminonly != null;
             public void Resetadminonly() => __pbn__adminonly = null;
             private bool? __pbn__adminonly;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            [global::System.ComponentModel.DefaultValue("")]
+            public string display_name
+            {
+                get => __pbn__display_name ?? "";
+                set => __pbn__display_name = value;
+            }
+            public bool ShouldSerializedisplay_name() => __pbn__display_name != null;
+            public void Resetdisplay_name() => __pbn__display_name = null;
+            private string __pbn__display_name;
 
         }
 
@@ -1542,14 +1718,14 @@ namespace SteamKit2.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        public uint app_id
+        public uint appid
         {
-            get => __pbn__app_id.GetValueOrDefault();
-            set => __pbn__app_id = value;
+            get => __pbn__appid.GetValueOrDefault();
+            set => __pbn__appid = value;
         }
-        public bool ShouldSerializeapp_id() => __pbn__app_id != null;
-        public void Resetapp_id() => __pbn__app_id = null;
-        private uint? __pbn__app_id;
+        public bool ShouldSerializeappid() => __pbn__appid != null;
+        public void Resetappid() => __pbn__appid = null;
+        private uint? __pbn__appid;
 
         [global::ProtoBuf.ProtoMember(2)]
         public uint last_time_updated
@@ -1708,10 +1884,10 @@ namespace SteamKit2.Internal
         private uint? __pbn__appid;
 
         [global::ProtoBuf.ProtoMember(4)]
-        [global::System.ComponentModel.DefaultValue(1)]
+        [global::System.ComponentModel.DefaultValue(1u)]
         public uint page
         {
-            get => __pbn__page ?? 1;
+            get => __pbn__page ?? 1u;
             set => __pbn__page = value;
         }
         public bool ShouldSerializepage() => __pbn__page != null;
@@ -1719,10 +1895,10 @@ namespace SteamKit2.Internal
         private uint? __pbn__page;
 
         [global::ProtoBuf.ProtoMember(5)]
-        [global::System.ComponentModel.DefaultValue(1)]
+        [global::System.ComponentModel.DefaultValue(1u)]
         public uint numperpage
         {
-            get => __pbn__numperpage ?? 1;
+            get => __pbn__numperpage ?? 1u;
             set => __pbn__numperpage = value;
         }
         public bool ShouldSerializenumperpage() => __pbn__numperpage != null;
@@ -1802,10 +1978,10 @@ namespace SteamKit2.Internal
         private string __pbn__match_cloud_filename;
 
         [global::ProtoBuf.ProtoMember(27)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint cache_max_age_seconds
         {
-            get => __pbn__cache_max_age_seconds ?? 0;
+            get => __pbn__cache_max_age_seconds ?? 0u;
             set => __pbn__cache_max_age_seconds = value;
         }
         public bool ShouldSerializecache_max_age_seconds() => __pbn__cache_max_age_seconds != null;
@@ -1825,6 +2001,9 @@ namespace SteamKit2.Internal
 
         [global::ProtoBuf.ProtoMember(34)]
         public global::System.Collections.Generic.List<TagGroup> taggroups { get; } = new global::System.Collections.Generic.List<TagGroup>();
+
+        [global::ProtoBuf.ProtoMember(37)]
+        public global::System.Collections.Generic.List<EContentDescriptorID> excluded_content_descriptors { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
 
         [global::ProtoBuf.ProtoMember(17)]
         public bool totalonly
@@ -1961,6 +2140,16 @@ namespace SteamKit2.Internal
         public void Resetreturn_reactions() => __pbn__return_reactions = null;
         private bool? __pbn__return_reactions;
 
+        [global::ProtoBuf.ProtoMember(25)]
+        public uint startindex_override
+        {
+            get => __pbn__startindex_override.GetValueOrDefault();
+            set => __pbn__startindex_override = value;
+        }
+        public bool ShouldSerializestartindex_override() => __pbn__startindex_override != null;
+        public void Resetstartindex_override() => __pbn__startindex_override = null;
+        private uint? __pbn__startindex_override;
+
         [global::ProtoBuf.ProtoMember(33)]
         [global::System.ComponentModel.DefaultValue(EPublishedFileRevision.k_EPublishedFileRevision_Default)]
         public EPublishedFileRevision desired_revision
@@ -1971,6 +2160,16 @@ namespace SteamKit2.Internal
         public bool ShouldSerializedesired_revision() => __pbn__desired_revision != null;
         public void Resetdesired_revision() => __pbn__desired_revision = null;
         private EPublishedFileRevision? __pbn__desired_revision;
+
+        [global::ProtoBuf.ProtoMember(36)]
+        public bool return_apps
+        {
+            get => __pbn__return_apps.GetValueOrDefault();
+            set => __pbn__return_apps = value;
+        }
+        public bool ShouldSerializereturn_apps() => __pbn__return_apps != null;
+        public void Resetreturn_apps() => __pbn__return_apps = null;
+        private bool? __pbn__return_apps;
 
         [global::ProtoBuf.ProtoContract()]
         public partial class KVTag : global::ProtoBuf.IExtensible
@@ -2279,6 +2478,16 @@ namespace SteamKit2.Internal
         public void Resetpreview_filename() => __pbn__preview_filename = null;
         private string __pbn__preview_filename;
 
+        [global::ProtoBuf.ProtoMember(10)]
+        public bool spoiler_tag
+        {
+            get => __pbn__spoiler_tag.GetValueOrDefault();
+            set => __pbn__spoiler_tag = value;
+        }
+        public bool ShouldSerializespoiler_tag() => __pbn__spoiler_tag != null;
+        public void Resetspoiler_tag() => __pbn__spoiler_tag = null;
+        private bool? __pbn__spoiler_tag;
+
         [global::ProtoBuf.ProtoMember(15)]
         public uint image_width
         {
@@ -2303,6 +2512,34 @@ namespace SteamKit2.Internal
 
     [global::ProtoBuf.ProtoContract()]
     public partial class CPublishedFile_Update_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_Delete_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong publishedfileid
+        {
+            get => __pbn__publishedfileid.GetValueOrDefault();
+            set => __pbn__publishedfileid = value;
+        }
+        public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+        public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+        private ulong? __pbn__publishedfileid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_Delete_Response : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -2616,10 +2853,10 @@ namespace SteamKit2.Internal
         private string __pbn__cursor;
 
         [global::ProtoBuf.ProtoMember(3)]
-        [global::System.ComponentModel.DefaultValue(1)]
+        [global::System.ComponentModel.DefaultValue(1u)]
         public uint numperpage
         {
-            get => __pbn__numperpage ?? 1;
+            get => __pbn__numperpage ?? 1u;
             set => __pbn__numperpage = value;
         }
         public bool ShouldSerializenumperpage() => __pbn__numperpage != null;
@@ -2721,10 +2958,10 @@ namespace SteamKit2.Internal
         private bool? __pbn__include_recent_votes_only;
 
         [global::ProtoBuf.ProtoMember(31)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint cache_max_age_seconds
         {
-            get => __pbn__cache_max_age_seconds ?? 0;
+            get => __pbn__cache_max_age_seconds ?? 0u;
             set => __pbn__cache_max_age_seconds = value;
         }
         public bool ShouldSerializecache_max_age_seconds() => __pbn__cache_max_age_seconds != null;
@@ -2747,6 +2984,15 @@ namespace SteamKit2.Internal
 
         [global::ProtoBuf.ProtoMember(42)]
         public global::System.Collections.Generic.List<TagGroup> taggroups { get; } = new global::System.Collections.Generic.List<TagGroup>();
+
+        [global::ProtoBuf.ProtoMember(44)]
+        public DateRange date_range_created { get; set; }
+
+        [global::ProtoBuf.ProtoMember(45)]
+        public DateRange date_range_updated { get; set; }
+
+        [global::ProtoBuf.ProtoMember(46)]
+        public global::System.Collections.Generic.List<EContentDescriptorID> excluded_content_descriptors { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
 
         [global::ProtoBuf.ProtoMember(16)]
         public bool totalonly
@@ -2944,6 +3190,35 @@ namespace SteamKit2.Internal
 
         }
 
+        [global::ProtoBuf.ProtoContract()]
+        public partial class DateRange : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public uint timestamp_start
+            {
+                get => __pbn__timestamp_start.GetValueOrDefault();
+                set => __pbn__timestamp_start = value;
+            }
+            public bool ShouldSerializetimestamp_start() => __pbn__timestamp_start != null;
+            public void Resettimestamp_start() => __pbn__timestamp_start = null;
+            private uint? __pbn__timestamp_start;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint timestamp_end
+            {
+                get => __pbn__timestamp_end.GetValueOrDefault();
+                set => __pbn__timestamp_end = value;
+            }
+            public bool ShouldSerializetimestamp_end() => __pbn__timestamp_end != null;
+            public void Resettimestamp_end() => __pbn__timestamp_end = null;
+            private uint? __pbn__timestamp_end;
+
+        }
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -3130,6 +3405,101 @@ namespace SteamKit2.Internal
             public bool ShouldSerializerelationship() => __pbn__relationship != null;
             public void Resetrelationship() => __pbn__relationship = null;
             private uint? __pbn__relationship;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetAppRelationshipsBatched_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<ulong> publishedfileids { get; } = new global::System.Collections.Generic.List<ulong>();
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint filter_relationship
+        {
+            get => __pbn__filter_relationship.GetValueOrDefault();
+            set => __pbn__filter_relationship = value;
+        }
+        public bool ShouldSerializefilter_relationship() => __pbn__filter_relationship != null;
+        public void Resetfilter_relationship() => __pbn__filter_relationship = null;
+        private uint? __pbn__filter_relationship;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetAppRelationshipsBatched_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<PublishedFileAppRelationship> relationships { get; } = new global::System.Collections.Generic.List<PublishedFileAppRelationship>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class AppRelationship : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public uint appid
+            {
+                get => __pbn__appid.GetValueOrDefault();
+                set => __pbn__appid = value;
+            }
+            public bool ShouldSerializeappid() => __pbn__appid != null;
+            public void Resetappid() => __pbn__appid = null;
+            private uint? __pbn__appid;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint relationship
+            {
+                get => __pbn__relationship.GetValueOrDefault();
+                set => __pbn__relationship = value;
+            }
+            public bool ShouldSerializerelationship() => __pbn__relationship != null;
+            public void Resetrelationship() => __pbn__relationship = null;
+            private uint? __pbn__relationship;
+
+        }
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class PublishedFileAppRelationship : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public ulong publishedfileid
+            {
+                get => __pbn__publishedfileid.GetValueOrDefault();
+                set => __pbn__publishedfileid = value;
+            }
+            public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+            public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+            private ulong? __pbn__publishedfileid;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint result
+            {
+                get => __pbn__result.GetValueOrDefault();
+                set => __pbn__result = value;
+            }
+            public bool ShouldSerializeresult() => __pbn__result != null;
+            public void Resetresult() => __pbn__result = null;
+            private uint? __pbn__result;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            public global::System.Collections.Generic.List<CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship> app_relationships { get; } = new global::System.Collections.Generic.List<CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship>();
 
         }
 
@@ -3435,6 +3805,221 @@ namespace SteamKit2.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetItemChanges_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint appid
+        {
+            get => __pbn__appid.GetValueOrDefault();
+            set => __pbn__appid = value;
+        }
+        public bool ShouldSerializeappid() => __pbn__appid != null;
+        public void Resetappid() => __pbn__appid = null;
+        private uint? __pbn__appid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint last_time_updated
+        {
+            get => __pbn__last_time_updated.GetValueOrDefault();
+            set => __pbn__last_time_updated = value;
+        }
+        public bool ShouldSerializelast_time_updated() => __pbn__last_time_updated != null;
+        public void Resetlast_time_updated() => __pbn__last_time_updated = null;
+        private uint? __pbn__last_time_updated;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public uint num_items_max
+        {
+            get => __pbn__num_items_max.GetValueOrDefault();
+            set => __pbn__num_items_max = value;
+        }
+        public bool ShouldSerializenum_items_max() => __pbn__num_items_max != null;
+        public void Resetnum_items_max() => __pbn__num_items_max = null;
+        private uint? __pbn__num_items_max;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetItemChanges_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint update_time
+        {
+            get => __pbn__update_time.GetValueOrDefault();
+            set => __pbn__update_time = value;
+        }
+        public bool ShouldSerializeupdate_time() => __pbn__update_time != null;
+        public void Resetupdate_time() => __pbn__update_time = null;
+        private uint? __pbn__update_time;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public global::System.Collections.Generic.List<WorkshopItemInfo> workshop_items { get; } = new global::System.Collections.Generic.List<WorkshopItemInfo>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class WorkshopItemInfo : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+            public ulong published_file_id
+            {
+                get => __pbn__published_file_id.GetValueOrDefault();
+                set => __pbn__published_file_id = value;
+            }
+            public bool ShouldSerializepublished_file_id() => __pbn__published_file_id != null;
+            public void Resetpublished_file_id() => __pbn__published_file_id = null;
+            private ulong? __pbn__published_file_id;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint time_updated
+            {
+                get => __pbn__time_updated.GetValueOrDefault();
+                set => __pbn__time_updated = value;
+            }
+            public bool ShouldSerializetime_updated() => __pbn__time_updated != null;
+            public void Resettime_updated() => __pbn__time_updated = null;
+            private uint? __pbn__time_updated;
+
+            [global::ProtoBuf.ProtoMember(3, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+            public ulong manifest_id
+            {
+                get => __pbn__manifest_id.GetValueOrDefault();
+                set => __pbn__manifest_id = value;
+            }
+            public bool ShouldSerializemanifest_id() => __pbn__manifest_id != null;
+            public void Resetmanifest_id() => __pbn__manifest_id = null;
+            private ulong? __pbn__manifest_id;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetContentDescriptors_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong publishedfileid
+        {
+            get => __pbn__publishedfileid.GetValueOrDefault();
+            set => __pbn__publishedfileid = value;
+        }
+        public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+        public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+        private ulong? __pbn__publishedfileid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_GetContentDescriptors_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<ContentDescriptor> content_descriptors { get; } = new global::System.Collections.Generic.List<ContentDescriptor>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class ContentDescriptor : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            [global::System.ComponentModel.DefaultValue(EContentDescriptorID.k_EContentDescriptor_FrequentNudityOrSexualContent)]
+            public EContentDescriptorID descriptorid
+            {
+                get => __pbn__descriptorid ?? EContentDescriptorID.k_EContentDescriptor_FrequentNudityOrSexualContent;
+                set => __pbn__descriptorid = value;
+            }
+            public bool ShouldSerializedescriptorid() => __pbn__descriptorid != null;
+            public void Resetdescriptorid() => __pbn__descriptorid = null;
+            private EContentDescriptorID? __pbn__descriptorid;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint accountid
+            {
+                get => __pbn__accountid.GetValueOrDefault();
+                set => __pbn__accountid = value;
+            }
+            public bool ShouldSerializeaccountid() => __pbn__accountid != null;
+            public void Resetaccountid() => __pbn__accountid = null;
+            private uint? __pbn__accountid;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            public uint timestamp
+            {
+                get => __pbn__timestamp.GetValueOrDefault();
+                set => __pbn__timestamp = value;
+            }
+            public bool ShouldSerializetimestamp() => __pbn__timestamp != null;
+            public void Resettimestamp() => __pbn__timestamp = null;
+            private uint? __pbn__timestamp;
+
+            [global::ProtoBuf.ProtoMember(4)]
+            public bool moderator_set
+            {
+                get => __pbn__moderator_set.GetValueOrDefault();
+                set => __pbn__moderator_set = value;
+            }
+            public bool ShouldSerializemoderator_set() => __pbn__moderator_set != null;
+            public void Resetmoderator_set() => __pbn__moderator_set = null;
+            private bool? __pbn__moderator_set;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_UpdateContentDescriptors_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong publishedfileid
+        {
+            get => __pbn__publishedfileid.GetValueOrDefault();
+            set => __pbn__publishedfileid = value;
+        }
+        public bool ShouldSerializepublishedfileid() => __pbn__publishedfileid != null;
+        public void Resetpublishedfileid() => __pbn__publishedfileid = null;
+        private ulong? __pbn__publishedfileid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public global::System.Collections.Generic.List<EContentDescriptorID> descriptors_to_add { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public global::System.Collections.Generic.List<EContentDescriptorID> descriptors_to_remove { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPublishedFile_UpdateContentDescriptors_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public partial class CPublishedFile_FileSubscribed_Notification : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -3638,15 +4223,19 @@ namespace SteamKit2.Internal
 
     public interface IPublishedFile
     {
+        CPublishedFile_Vote_Response Vote(CPublishedFile_Vote_Request request);
         CPublishedFile_Subscribe_Response Subscribe(CPublishedFile_Subscribe_Request request);
         CPublishedFile_Unsubscribe_Response Unsubscribe(CPublishedFile_Unsubscribe_Request request);
         CPublishedFile_CanSubscribe_Response CanSubscribe(CPublishedFile_CanSubscribe_Request request);
+        CPublishedFile_GetSubSectionData_Response GetSubSectionData(CPublishedFile_GetSubSectionData_Request request);
         CPublishedFile_Publish_Response Publish(CPublishedFile_Publish_Request request);
         CPublishedFile_GetDetails_Response GetDetails(CPublishedFile_GetDetails_Request request);
         CPublishedFile_GetItemInfo_Response GetItemInfo(CPublishedFile_GetItemInfo_Request request);
         CPublishedFile_GetUserFiles_Response GetUserFiles(CPublishedFile_GetUserFiles_Request request);
+        CPublishedFile_GetUserFiles_Response GetUserFileCount(CPublishedFile_GetUserFiles_Request request);
         CPublishedFile_AreFilesInSubscriptionList_Response AreFilesInSubscriptionList(CPublishedFile_AreFilesInSubscriptionList_Request request);
         CPublishedFile_Update_Response Update(CPublishedFile_Update_Request request);
+        CPublishedFile_Delete_Response Delete(CPublishedFile_Delete_Request request);
         CPublishedFile_GetChangeHistoryEntry_Response GetChangeHistoryEntry(CPublishedFile_GetChangeHistoryEntry_Request request);
         CPublishedFile_GetChangeHistory_Response GetChangeHistory(CPublishedFile_GetChangeHistory_Request request);
         CPublishedFile_RefreshVotingQueue_Response RefreshVotingQueue(CPublishedFile_RefreshVotingQueue_Request request);
@@ -3654,6 +4243,7 @@ namespace SteamKit2.Internal
         CPublishedFile_AddAppRelationship_Response AddAppRelationship(CPublishedFile_AddAppRelationship_Request request);
         CPublishedFile_RemoveAppRelationship_Response RemoveAppRelationship(CPublishedFile_RemoveAppRelationship_Request request);
         CPublishedFile_GetAppRelationships_Response GetAppRelationships(CPublishedFile_GetAppRelationships_Request request);
+        CPublishedFile_GetAppRelationshipsBatched_Response GetAppRelationshipsBatched(CPublishedFile_GetAppRelationshipsBatched_Request request);
         CPublishedFile_StartPlaytimeTracking_Response StartPlaytimeTracking(CPublishedFile_StartPlaytimeTracking_Request request);
         CPublishedFile_StopPlaytimeTracking_Response StopPlaytimeTracking(CPublishedFile_StopPlaytimeTracking_Request request);
         CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response StopPlaytimeTrackingForAllAppItems(CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request request);
@@ -3661,6 +4251,9 @@ namespace SteamKit2.Internal
         CPublishedFile_AddChild_Response AddChild(CPublishedFile_AddChild_Request request);
         CPublishedFile_RemoveChild_Response RemoveChild(CPublishedFile_RemoveChild_Request request);
         CPublishedFile_GetUserVoteSummary_Response GetUserVoteSummary(CPublishedFile_GetUserVoteSummary_Request request);
+        CPublishedFile_GetItemChanges_Response GetItemChanges(CPublishedFile_GetItemChanges_Request request);
+        CPublishedFile_GetContentDescriptors_Response GetContentDescriptors(CPublishedFile_GetContentDescriptors_Request request);
+        CPublishedFile_UpdateContentDescriptors_Response UpdateContentDescriptors(CPublishedFile_UpdateContentDescriptors_Request request);
     }
 
     public interface IPublishedFileClient
@@ -3672,5 +4265,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

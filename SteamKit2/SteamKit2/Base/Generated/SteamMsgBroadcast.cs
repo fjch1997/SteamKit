@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -260,7 +260,7 @@ namespace SteamKit2.Internal
         [global::System.ComponentModel.DefaultValue(typeof(ulong), "0")]
         public ulong rtmp_token
         {
-            get => __pbn__rtmp_token ?? 0;
+            get => __pbn__rtmp_token ?? 0ul;
             set => __pbn__rtmp_token = value;
         }
         public bool ShouldSerializertmp_token() => __pbn__rtmp_token != null;
@@ -426,16 +426,6 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeviewer_token() => __pbn__viewer_token != null;
         public void Resetviewer_token() => __pbn__viewer_token = null;
         private ulong? __pbn__viewer_token;
-
-        [global::ProtoBuf.ProtoMember(4)]
-        public uint client_ip
-        {
-            get => __pbn__client_ip.GetValueOrDefault();
-            set => __pbn__client_ip = value;
-        }
-        public bool ShouldSerializeclient_ip() => __pbn__client_ip != null;
-        public void Resetclient_ip() => __pbn__client_ip = null;
-        private uint? __pbn__client_ip;
 
         [global::ProtoBuf.ProtoMember(5)]
         public uint client_cell
@@ -673,6 +663,17 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeduration() => __pbn__duration != null;
         public void Resetduration() => __pbn__duration = null;
         private int? __pbn__duration;
+
+        [global::ProtoBuf.ProtoMember(20)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string cdn_auth_url_parameters
+        {
+            get => __pbn__cdn_auth_url_parameters ?? "";
+            set => __pbn__cdn_auth_url_parameters = value;
+        }
+        public bool ShouldSerializecdn_auth_url_parameters() => __pbn__cdn_auth_url_parameters != null;
+        public void Resetcdn_auth_url_parameters() => __pbn__cdn_auth_url_parameters = null;
+        private string __pbn__cdn_auth_url_parameters;
 
         [global::ProtoBuf.ProtoContract()]
         public enum EWatchResponse
@@ -1288,10 +1289,10 @@ namespace SteamKit2.Internal
         private uint? __pbn__instance_id;
 
         [global::ProtoBuf.ProtoMember(4)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint language
         {
-            get => __pbn__language ?? 0;
+            get => __pbn__language ?? 0u;
             set => __pbn__language = value;
         }
         public bool ShouldSerializelanguage() => __pbn__language != null;
@@ -1985,6 +1986,27 @@ namespace SteamKit2.Internal
         public void Resetenable_replay() => __pbn__enable_replay = null;
         private bool? __pbn__enable_replay;
 
+        [global::ProtoBuf.ProtoMember(11)]
+        public bool is_partner_chat_only
+        {
+            get => __pbn__is_partner_chat_only.GetValueOrDefault();
+            set => __pbn__is_partner_chat_only = value;
+        }
+        public bool ShouldSerializeis_partner_chat_only() => __pbn__is_partner_chat_only != null;
+        public void Resetis_partner_chat_only() => __pbn__is_partner_chat_only = null;
+        private bool? __pbn__is_partner_chat_only;
+
+        [global::ProtoBuf.ProtoMember(12)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string wordban_list
+        {
+            get => __pbn__wordban_list ?? "";
+            set => __pbn__wordban_list = value;
+        }
+        public bool ShouldSerializewordban_list() => __pbn__wordban_list != null;
+        public void Resetwordban_list() => __pbn__wordban_list = null;
+        private string __pbn__wordban_list;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -2144,6 +2166,27 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeenable_replay() => __pbn__enable_replay != null;
         public void Resetenable_replay() => __pbn__enable_replay = null;
         private bool? __pbn__enable_replay;
+
+        [global::ProtoBuf.ProtoMember(12)]
+        public bool is_partner_chat_only
+        {
+            get => __pbn__is_partner_chat_only.GetValueOrDefault();
+            set => __pbn__is_partner_chat_only = value;
+        }
+        public bool ShouldSerializeis_partner_chat_only() => __pbn__is_partner_chat_only != null;
+        public void Resetis_partner_chat_only() => __pbn__is_partner_chat_only = null;
+        private bool? __pbn__is_partner_chat_only;
+
+        [global::ProtoBuf.ProtoMember(13)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string wordban_list
+        {
+            get => __pbn__wordban_list ?? "";
+            set => __pbn__wordban_list = value;
+        }
+        public bool ShouldSerializewordban_list() => __pbn__wordban_list != null;
+        public void Resetwordban_list() => __pbn__wordban_list = null;
+        private string __pbn__wordban_list;
 
     }
 
@@ -2554,10 +2597,10 @@ namespace SteamKit2.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(100)]
+        [global::System.ComponentModel.DefaultValue(100u)]
         public uint row_limit
         {
-            get => __pbn__row_limit ?? 100;
+            get => __pbn__row_limit ?? 100u;
             set => __pbn__row_limit = value;
         }
         public bool ShouldSerializerow_limit() => __pbn__row_limit != null;
@@ -2565,10 +2608,10 @@ namespace SteamKit2.Internal
         private uint? __pbn__row_limit;
 
         [global::ProtoBuf.ProtoMember(2)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint start_time
         {
-            get => __pbn__start_time ?? 0;
+            get => __pbn__start_time ?? 0u;
             set => __pbn__start_time = value;
         }
         public bool ShouldSerializestart_time() => __pbn__start_time != null;
@@ -3513,5 +3556,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

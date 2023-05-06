@@ -63,6 +63,7 @@ namespace SteamKit2
             /// Gets or sets the login key used to login. This is a key that has been recieved in a previous Steam sesson by a <see cref="LoginKeyCallback"/>.
             /// </summary>
             /// <value>The login key.</value>
+            [Obsolete( "Steam no longer sends new login keys as of March 2023, use SteamAuthentication." )]
             public string? LoginKey { get; set; }
             /// <summary>
             /// Gets or sets the 'Should Remember Password' flag. This is used in combination with the login key and <see cref="LoginKeyCallback"/> for password-less login.
@@ -74,6 +75,11 @@ namespace SteamKit2
             /// </summary>
             /// <value>The sentry file hash.</value>
             public byte[]? SentryFileHash { get; set; }
+            /// <summary>
+            /// Gets or sets the access token used to login. This a token that has been provided after a successful login using <see cref="Authentication"/>.
+            /// </summary>
+            /// <value>The access token.</value>
+            public string? AccessToken { get; set; }
 
             /// <summary>
             /// Gets or sets the account instance. 1 for the PC instance or 2 for the Console (PS3) instance.
@@ -110,6 +116,11 @@ namespace SteamKit2
             /// </summary>
             /// <value>The client language.</value>
             public string ClientLanguage { get; set; }
+            /// <summary>
+            /// Gets or sets the machine name.
+            /// </summary>
+            /// <value>The machine name.</value>
+            public string? MachineName { get; set; } = $"{Environment.MachineName} (SteamKit2)";
 
             /// <summary>
             /// Initializes a new instance of the <see cref="LogOnDetails"/> class.
@@ -269,13 +280,10 @@ namespace SteamKit2
                 { EMsg.ClientEmailAddrInfo, HandleEmailAddrInfo },
                 { EMsg.ClientWalletInfoUpdate, HandleWalletInfo },
                 { EMsg.ClientRequestWebAPIAuthenticateUserNonceResponse, HandleWebAPIUserNonce },
+                { EMsg.ClientVanityURLChangedNotification, HandleVanityURLChangedNotification },
                 { EMsg.ClientMarketingMessageUpdate2, HandleMarketingMessageUpdate },
+                { EMsg.ClientPlayingSessionState, HandlePlayingSessionState },
             };
-        }
-
-        static SteamUser()
-        {
-            HardwareUtils.Init();
         }
 
 
@@ -291,12 +299,15 @@ namespace SteamKit2
         {
             if ( details == null )
             {
-                throw new ArgumentNullException( nameof(details) );
+                throw new ArgumentNullException( nameof( details ) );
             }
-            if ( string.IsNullOrEmpty( details.Username ) || ( string.IsNullOrEmpty( details.Password ) && string.IsNullOrEmpty( details.LoginKey ) ) )
+
+#pragma warning disable CS0618 // LoginKey is obsolete
+            if ( string.IsNullOrEmpty( details.Username ) || ( string.IsNullOrEmpty( details.Password ) && string.IsNullOrEmpty( details.LoginKey ) && string.IsNullOrEmpty( details.AccessToken ) ) )
             {
                 throw new ArgumentException( "LogOn requires a username and password to be set in 'details'." );
             }
+
             if ( !string.IsNullOrEmpty( details.LoginKey ) && !details.ShouldRememberPassword )
             {
                 // Prevent consumers from screwing this up.
@@ -304,6 +315,8 @@ namespace SteamKit2
                 // The inverse is not applicable (you can log in with should_remember_password and no login_key).
                 throw new ArgumentException( "ShouldRememberPassword is required to be set to true in order to use LoginKey." );
             }
+#pragma warning restore CS0618 // LoginKey is obsolete
+
             if ( !this.Client.IsConnected )
             {
                 this.Client.PostCallback( new LoggedOnCallback( EResult.NoConnection ) );
@@ -350,13 +363,18 @@ namespace SteamKit2
             // we're now using the latest steamclient package version, this is required to get a proper sentry file for steam guard
             logon.Body.client_package_version = 1771; // todo: determine if this is still required
             logon.Body.supports_rate_limit_response = true;
-            logon.Body.machine_id = HardwareUtils.GetMachineID();
+            logon.Body.machine_name = details.MachineName;
+            logon.Body.machine_id = HardwareUtils.GetMachineID( Client.Configuration.MachineInfoProvider );
 
             // steam guard 
             logon.Body.auth_code = details.AuthCode;
             logon.Body.two_factor_code = details.TwoFactorCode;
 
+#pragma warning disable CS0618 // LoginKey is obsolete
             logon.Body.login_key = details.LoginKey;
+#pragma warning restore CS0618 // LoginKey is obsolete
+
+            logon.Body.access_token = details.AccessToken;
 
             logon.Body.sha_sentryfile = details.SentryFileHash;
             logon.Body.eresult_sentryfile = ( int )( details.SentryFileHash != null ? EResult.OK : EResult.FileNotFound );
@@ -384,7 +402,7 @@ namespace SteamKit2
         {
             if ( details == null )
             {
-                throw new ArgumentNullException( nameof(details) );
+                throw new ArgumentNullException( nameof( details ) );
             }
 
             if ( !this.Client.IsConnected )
@@ -405,7 +423,7 @@ namespace SteamKit2
             logon.Body.client_language = details.ClientLanguage;
             logon.Body.cell_id = details.CellID ?? Client.Configuration.CellID;
 
-            logon.Body.machine_id = HardwareUtils.GetMachineID();
+            logon.Body.machine_id = HardwareUtils.GetMachineID( Client.Configuration.MachineInfoProvider );
 
             this.Client.Send( logon );
         }
@@ -431,7 +449,7 @@ namespace SteamKit2
         {
             if ( details == null )
             {
-                throw new ArgumentNullException( nameof(details) );
+                throw new ArgumentNullException( nameof( details ) );
             }
 
             var response = new ClientMsgProtobuf<CMsgClientUpdateMachineAuthResponse>( EMsg.ClientUpdateMachineAuthResponse );
@@ -481,11 +499,12 @@ namespace SteamKit2
         /// Accepts the new Login Key provided by a <see cref="LoginKeyCallback"/>.
         /// </summary>
         /// <param name="callback">The callback containing the new Login Key.</param>
+        [Obsolete( "Steam no longer sends new login keys as of March 2023, use SteamAuthentication." )]
         public void AcceptNewLoginKey( LoginKeyCallback callback )
         {
             if ( callback == null )
             {
-                throw new ArgumentNullException( nameof(callback) );
+                throw new ArgumentNullException( nameof( callback ) );
             }
 
             var acceptance = new ClientMsgProtobuf<CMsgClientNewLoginKeyAccepted>( EMsg.ClientNewLoginKeyAccepted );
@@ -502,12 +521,10 @@ namespace SteamKit2
         {
             if ( packetMsg == null )
             {
-                throw new ArgumentNullException( nameof(packetMsg) );
+                throw new ArgumentNullException( nameof( packetMsg ) );
             }
 
-            bool haveFunc = dispatchMap.TryGetValue( packetMsg.MsgType, out var handlerFunc );
-
-            if ( !haveFunc )
+            if ( !dispatchMap.TryGetValue( packetMsg.MsgType, out var handlerFunc ) )
             {
                 // ignore messages that we don't have a handler function for
                 return;
@@ -516,11 +533,11 @@ namespace SteamKit2
             handlerFunc( packetMsg );
         }
 
-        
+
         #region ClientMsg Handlers
         void HandleLoggedOff( IPacketMsg packetMsg )
         {
-            EResult result = EResult.Invalid;
+            EResult result;
 
             if ( packetMsg.IsProto )
             {
@@ -539,7 +556,7 @@ namespace SteamKit2
         {
             var machineAuth = new ClientMsgProtobuf<CMsgClientUpdateMachineAuth>( packetMsg );
 
-            var callback = new UpdateMachineAuthCallback(packetMsg.SourceJobID, machineAuth.Body);
+            var callback = new UpdateMachineAuthCallback( packetMsg.SourceJobID, machineAuth.Body );
             Client.PostCallback( callback );
         }
         void HandleSessionToken( IPacketMsg packetMsg )
@@ -553,7 +570,9 @@ namespace SteamKit2
         {
             var loginKey = new ClientMsgProtobuf<CMsgClientNewLoginKey>( packetMsg );
 
+#pragma warning disable CS0618 // LoginKey is obsolete
             var callback = new LoginKeyCallback( loginKey.Body );
+#pragma warning restore CS0618 // LoginKey is obsolete
             this.Client.PostCallback( callback );
         }
         void HandleLogOnResponse( IPacketMsg packetMsg )
@@ -580,11 +599,11 @@ namespace SteamKit2
             var callback = new AccountInfoCallback( accInfo.Body );
             this.Client.PostCallback( callback );
         }
-        void HandleEmailAddrInfo(IPacketMsg packetMsg)
+        void HandleEmailAddrInfo( IPacketMsg packetMsg )
         {
-            var emailAddrInfo = new ClientMsgProtobuf<CMsgClientEmailAddrInfo>(packetMsg);
-            var callback = new EmailAddrInfoCallback(emailAddrInfo.Body);
-            this.Client.PostCallback(callback);
+            var emailAddrInfo = new ClientMsgProtobuf<CMsgClientEmailAddrInfo>( packetMsg );
+            var callback = new EmailAddrInfoCallback( emailAddrInfo.Body );
+            this.Client.PostCallback( callback );
         }
         void HandleWalletInfo( IPacketMsg packetMsg )
         {
@@ -596,7 +615,13 @@ namespace SteamKit2
         void HandleWebAPIUserNonce( IPacketMsg packetMsg )
         {
             var userNonce = new ClientMsgProtobuf<CMsgClientRequestWebAPIAuthenticateUserNonceResponse>( packetMsg );
-            var callback = new WebAPIUserNonceCallback(userNonce.TargetJobID, userNonce.Body);
+            var callback = new WebAPIUserNonceCallback( userNonce.TargetJobID, userNonce.Body );
+            this.Client.PostCallback( callback );
+        }
+        void HandleVanityURLChangedNotification( IPacketMsg packetMsg )
+        {
+            var vanityUrl = new ClientMsgProtobuf<CMsgClientVanityURLChangedNotification>( packetMsg );
+            var callback = new VanityURLChangedCallback( vanityUrl.TargetJobID, vanityUrl.Body );
             this.Client.PostCallback( callback );
         }
         void HandleMarketingMessageUpdate( IPacketMsg packetMsg )
@@ -607,6 +632,12 @@ namespace SteamKit2
 
             var callback = new MarketingMessageCallback( marketingMessage.Body, payload );
             this.Client.PostCallback( callback );
+        }
+        void HandlePlayingSessionState( IPacketMsg packetMsg )
+        {
+            var playingSessionState = new ClientMsgProtobuf<CMsgClientPlayingSessionState>( packetMsg );
+
+            this.Client.PostCallback( new PlayingSessionStateCallback( packetMsg.TargetJobID, playingSessionState.Body ) );
         }
         #endregion
     }
