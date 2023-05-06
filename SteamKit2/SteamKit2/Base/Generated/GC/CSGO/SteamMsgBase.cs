@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.CSGO.Internal
 {
 
@@ -50,7 +50,7 @@ namespace SteamKit2.GC.CSGO.Internal
         [global::System.ComponentModel.DefaultValue(typeof(ulong), "18446744073709551615")]
         public ulong job_id_source
         {
-            get => __pbn__job_id_source ?? 18446744073709551615;
+            get => __pbn__job_id_source ?? 18446744073709551615ul;
             set => __pbn__job_id_source = value;
         }
         public bool ShouldSerializejob_id_source() => __pbn__job_id_source != null;
@@ -61,7 +61,7 @@ namespace SteamKit2.GC.CSGO.Internal
         [global::System.ComponentModel.DefaultValue(typeof(ulong), "18446744073709551615")]
         public ulong job_id_target
         {
-            get => __pbn__job_id_target ?? 18446744073709551615;
+            get => __pbn__job_id_target ?? 18446744073709551615ul;
             set => __pbn__job_id_target = value;
         }
         public bool ShouldSerializejob_id_target() => __pbn__job_id_target != null;
@@ -142,10 +142,10 @@ namespace SteamKit2.GC.CSGO.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(255)]
+        [global::System.ComponentModel.DefaultValue(255u)]
         public uint status
         {
-            get => __pbn__status ?? 255;
+            get => __pbn__status ?? 255u;
             set => __pbn__status = value;
         }
         public bool ShouldSerializestatus() => __pbn__status != null;
@@ -153,10 +153,10 @@ namespace SteamKit2.GC.CSGO.Internal
         private uint? __pbn__status;
 
         [global::ProtoBuf.ProtoMember(2)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint account_id
         {
-            get => __pbn__account_id ?? 0;
+            get => __pbn__account_id ?? 0u;
             set => __pbn__account_id = value;
         }
         public bool ShouldSerializeaccount_id() => __pbn__account_id != null;
@@ -164,10 +164,10 @@ namespace SteamKit2.GC.CSGO.Internal
         private uint? __pbn__account_id;
 
         [global::ProtoBuf.ProtoMember(3)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint publisher_group_id
         {
-            get => __pbn__publisher_group_id ?? 0;
+            get => __pbn__publisher_group_id ?? 0u;
             set => __pbn__publisher_group_id = value;
         }
         public bool ShouldSerializepublisher_group_id() => __pbn__publisher_group_id != null;
@@ -1719,10 +1719,10 @@ namespace SteamKit2.GC.CSGO.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(2)]
+        [global::System.ComponentModel.DefaultValue(2u)]
         public uint eresult
         {
-            get => __pbn__eresult ?? 2;
+            get => __pbn__eresult ?? 2u;
             set => __pbn__eresult = value;
         }
         public bool ShouldSerializeeresult() => __pbn__eresult != null;
@@ -1788,10 +1788,10 @@ namespace SteamKit2.GC.CSGO.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(2)]
+        [global::System.ComponentModel.DefaultValue(2u)]
         public uint eresult
         {
-            get => __pbn__eresult ?? 2;
+            get => __pbn__eresult ?? 2u;
             set => __pbn__eresult = value;
         }
         public bool ShouldSerializeeresult() => __pbn__eresult != null;
@@ -1948,10 +1948,10 @@ namespace SteamKit2.GC.CSGO.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(2)]
+        [global::System.ComponentModel.DefaultValue(2u)]
         public uint eresult_deprecated
         {
-            get => __pbn__eresult_deprecated ?? 2;
+            get => __pbn__eresult_deprecated ?? 2u;
             set => __pbn__eresult_deprecated = value;
         }
         public bool ShouldSerializeeresult_deprecated() => __pbn__eresult_deprecated != null;
@@ -2292,6 +2292,26 @@ namespace SteamKit2.GC.CSGO.Internal
         public void Resettxn_country_code() => __pbn__txn_country_code = null;
         private string __pbn__txn_country_code;
 
+        [global::ProtoBuf.ProtoMember(38)]
+        public bool has_accepted_china_ssa
+        {
+            get => __pbn__has_accepted_china_ssa.GetValueOrDefault();
+            set => __pbn__has_accepted_china_ssa = value;
+        }
+        public bool ShouldSerializehas_accepted_china_ssa() => __pbn__has_accepted_china_ssa != null;
+        public void Resethas_accepted_china_ssa() => __pbn__has_accepted_china_ssa = null;
+        private bool? __pbn__has_accepted_china_ssa;
+
+        [global::ProtoBuf.ProtoMember(39)]
+        public bool is_banned_steam_china
+        {
+            get => __pbn__is_banned_steam_china.GetValueOrDefault();
+            set => __pbn__is_banned_steam_china = value;
+        }
+        public bool ShouldSerializeis_banned_steam_china() => __pbn__is_banned_steam_china != null;
+        public void Resetis_banned_steam_china() => __pbn__is_banned_steam_china = null;
+        private bool? __pbn__is_banned_steam_china;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -2511,6 +2531,17 @@ namespace SteamKit2.GC.CSGO.Internal
         public bool ShouldSerializeeresult() => __pbn__eresult != null;
         public void Reseteresult() => __pbn__eresult = null;
         private int? __pbn__eresult;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string message
+        {
+            get => __pbn__message ?? "";
+            set => __pbn__message = value;
+        }
+        public bool ShouldSerializemessage() => __pbn__message != null;
+        public void Resetmessage() => __pbn__message = null;
+        private string __pbn__message;
 
     }
 
@@ -3450,10 +3481,10 @@ namespace SteamKit2.GC.CSGO.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(2)]
+        [global::System.ComponentModel.DefaultValue(2u)]
         public uint eresult
         {
-            get => __pbn__eresult ?? 2;
+            get => __pbn__eresult ?? 2u;
             set => __pbn__eresult = value;
         }
         public bool ShouldSerializeeresult() => __pbn__eresult != null;
@@ -3488,6 +3519,66 @@ namespace SteamKit2.GC.CSGO.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CChinaAgreementSessions_StartAgreementSessionInGame_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public uint appid
+        {
+            get => __pbn__appid.GetValueOrDefault();
+            set => __pbn__appid = value;
+        }
+        public bool ShouldSerializeappid() => __pbn__appid != null;
+        public void Resetappid() => __pbn__appid = null;
+        private uint? __pbn__appid;
+
+        [global::ProtoBuf.ProtoMember(2, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string client_ipaddress
+        {
+            get => __pbn__client_ipaddress ?? "";
+            set => __pbn__client_ipaddress = value;
+        }
+        public bool ShouldSerializeclient_ipaddress() => __pbn__client_ipaddress != null;
+        public void Resetclient_ipaddress() => __pbn__client_ipaddress = null;
+        private string __pbn__client_ipaddress;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CChinaAgreementSessions_StartAgreementSessionInGame_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string agreement_url
+        {
+            get => __pbn__agreement_url ?? "";
+            set => __pbn__agreement_url = value;
+        }
+        public bool ShouldSerializeagreement_url() => __pbn__agreement_url != null;
+        public void Resetagreement_url() => __pbn__agreement_url = null;
+        private string __pbn__agreement_url;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public enum GCProtoBufMsgSrc
     {
         GCProtoBufMsgSrc_Unspecified = 0,
@@ -3499,5 +3590,5 @@ namespace SteamKit2.GC.CSGO.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

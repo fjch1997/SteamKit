@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -613,10 +613,10 @@ namespace SteamKit2.Internal
         private bool? __pbn__persona_set_by_user;
 
         [global::ProtoBuf.ProtoMember(6)]
-        [global::System.ComponentModel.DefaultValue(0)]
+        [global::System.ComponentModel.DefaultValue(0u)]
         public uint persona_state_flags
         {
-            get => __pbn__persona_state_flags ?? 0;
+            get => __pbn__persona_state_flags ?? 0u;
             set => __pbn__persona_state_flags = value;
         }
         public bool ShouldSerializepersona_state_flags() => __pbn__persona_state_flags != null;
@@ -971,6 +971,36 @@ namespace SteamKit2.Internal
             public bool ShouldSerializewatching_broadcast_title() => __pbn__watching_broadcast_title != null;
             public void Resetwatching_broadcast_title() => __pbn__watching_broadcast_title = null;
             private string __pbn__watching_broadcast_title;
+
+            [global::ProtoBuf.ProtoMember(78)]
+            public bool is_community_banned
+            {
+                get => __pbn__is_community_banned.GetValueOrDefault();
+                set => __pbn__is_community_banned = value;
+            }
+            public bool ShouldSerializeis_community_banned() => __pbn__is_community_banned != null;
+            public void Resetis_community_banned() => __pbn__is_community_banned = null;
+            private bool? __pbn__is_community_banned;
+
+            [global::ProtoBuf.ProtoMember(79)]
+            public bool player_name_pending_review
+            {
+                get => __pbn__player_name_pending_review.GetValueOrDefault();
+                set => __pbn__player_name_pending_review = value;
+            }
+            public bool ShouldSerializeplayer_name_pending_review() => __pbn__player_name_pending_review != null;
+            public void Resetplayer_name_pending_review() => __pbn__player_name_pending_review = null;
+            private bool? __pbn__player_name_pending_review;
+
+            [global::ProtoBuf.ProtoMember(80)]
+            public bool avatar_pending_review
+            {
+                get => __pbn__avatar_pending_review.GetValueOrDefault();
+                set => __pbn__avatar_pending_review = value;
+            }
+            public bool ShouldSerializeavatar_pending_review() => __pbn__avatar_pending_review != null;
+            public void Resetavatar_pending_review() => __pbn__avatar_pending_review = null;
+            private bool? __pbn__avatar_pending_review;
 
             [global::ProtoBuf.ProtoContract()]
             public partial class ClanData : global::ProtoBuf.IExtensible
@@ -1505,6 +1535,16 @@ namespace SteamKit2.Internal
             public void Resettime_received() => __pbn__time_received = null;
             private uint? __pbn__time_received;
 
+            [global::ProtoBuf.ProtoMember(6)]
+            public uint appid
+            {
+                get => __pbn__appid.GetValueOrDefault();
+                set => __pbn__appid = value;
+            }
+            public bool ShouldSerializeappid() => __pbn__appid != null;
+            public void Resetappid() => __pbn__appid = null;
+            private uint? __pbn__appid;
+
         }
 
         [global::ProtoBuf.ProtoContract()]
@@ -1554,6 +1594,26 @@ namespace SteamKit2.Internal
             public bool ShouldSerializeappid() => __pbn__appid != null;
             public void Resetappid() => __pbn__appid = null;
             private uint? __pbn__appid;
+
+            [global::ProtoBuf.ProtoMember(5)]
+            public uint time_last_used
+            {
+                get => __pbn__time_last_used.GetValueOrDefault();
+                set => __pbn__time_last_used = value;
+            }
+            public bool ShouldSerializetime_last_used() => __pbn__time_last_used != null;
+            public void Resettime_last_used() => __pbn__time_last_used = null;
+            private uint? __pbn__time_last_used;
+
+            [global::ProtoBuf.ProtoMember(6)]
+            public uint use_count
+            {
+                get => __pbn__use_count.GetValueOrDefault();
+                set => __pbn__use_count = value;
+            }
+            public bool ShouldSerializeuse_count() => __pbn__use_count != null;
+            public void Resetuse_count() => __pbn__use_count = null;
+            private uint? __pbn__use_count;
 
         }
 
@@ -1621,5 +1681,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using ProtoBuf;
+using SteamKit2.Authentication;
 using SteamKit2.Internal;
 
 namespace SteamKit2
@@ -34,6 +35,13 @@ namespace SteamKit2
         Dictionary<EMsg, Action<IPacketMsg>> dispatchMap;
 
         internal AsyncJobManager jobManager;
+
+        SteamAuthentication? _authentication = null;
+
+        /// <summary>
+        /// Handler used for authenticating on Steam.
+        /// </summary>
+        public SteamAuthentication Authentication => _authentication ??= new SteamAuthentication( this );
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SteamClient"/> class with the default configuration.
@@ -76,6 +84,9 @@ namespace SteamKit2
 
             this.handlers = new OrderedDictionary();
 
+            // Start calculating machine info so that it is (hopefully) ready by the time we get to logging in.
+            HardwareUtils.Init( configuration.MachineInfoProvider );
+
             // add this library's handlers
             // notice: SteamFriends should be added before SteamUser due to AccountInfoCallback
             this.AddHandler( new SteamFriends() );
@@ -92,6 +103,7 @@ namespace SteamKit2
             this.AddHandler( new SteamScreenshots() );
             this.AddHandler( new SteamMatchmaking() );
             this.AddHandler( new SteamNetworking() );
+            this.AddHandler( new SteamContent() );
 
             using ( var process = Process.GetCurrentProcess() )
             {
@@ -119,6 +131,11 @@ namespace SteamKit2
         /// <exception cref="InvalidOperationException">A handler of that type is already registered.</exception>
         public void AddHandler( ClientMsgHandler handler )
         {
+            if ( handler is null )
+            {
+                throw new ArgumentNullException( nameof( handler ) );
+            }
+
             if ( handlers.Contains( handler.GetType() ) )
             {
                 throw new InvalidOperationException( string.Format( "A handler of type \"{0}\" is already registered.", handler.GetType() ) );
@@ -355,9 +372,7 @@ namespace SteamKit2
                 return false;
             }
 
-            bool haveFunc = dispatchMap.TryGetValue( packetMsg.MsgType, out var handlerFunc );
-
-            if ( haveFunc )
+            if ( dispatchMap.TryGetValue( packetMsg.MsgType, out var handlerFunc ) )
             {
                 // we want to handle some of the clientmsgs before we pass them along to registered handlers
                 handlerFunc( packetMsg );
@@ -367,7 +382,7 @@ namespace SteamKit2
             foreach ( DictionaryEntry kvp in handlers )
             {
                 var key = (Type) kvp.Key;
-                var value = (ClientMsgHandler) kvp.Value;
+                var value = (ClientMsgHandler) kvp.Value!;
 
                 try
                 {
@@ -375,14 +390,14 @@ namespace SteamKit2
                 }
                 catch ( ProtoException ex )
                 {
-                    LogDebug( "SteamClient", "'{0}' handler failed to (de)serialize a protobuf: '{1}'", key.Name, ex.Message );
-                    Disconnect();
+                    LogDebug( nameof( SteamClient ), $"'{key.Name}' handler failed to (de)serialize a protobuf: {ex}" );
+                    Disconnect( userInitiated: false );
                     return false;
                 }
                 catch ( Exception ex )
                 {
-                    LogDebug( "SteamClient", "Unhandled '{0}' exception from '{1}' handler: '{2}'", ex.GetType().Name, key.Name, ex.Message );
-                    Disconnect();
+                    LogDebug( nameof( SteamClient ), $"Unhandled exception from '{key.Name}' handler: {ex}" );
+                    Disconnect( userInitiated: false );
                     return false;
                 }
             }

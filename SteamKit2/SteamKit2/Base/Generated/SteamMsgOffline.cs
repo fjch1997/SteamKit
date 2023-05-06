@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.Internal
 {
 
@@ -25,6 +25,16 @@ namespace SteamKit2.Internal
         public bool ShouldSerializepriority() => __pbn__priority != null;
         public void Resetpriority() => __pbn__priority = null;
         private uint? __pbn__priority;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public bool perform_encryption
+        {
+            get => __pbn__perform_encryption.GetValueOrDefault();
+            set => __pbn__perform_encryption = value;
+        }
+        public bool ShouldSerializeperform_encryption() => __pbn__perform_encryption != null;
+        public void Resetperform_encryption() => __pbn__perform_encryption = null;
+        private bool? __pbn__perform_encryption;
 
     }
 
@@ -54,6 +64,9 @@ namespace SteamKit2.Internal
         public bool ShouldSerializesignature() => __pbn__signature != null;
         public void Resetsignature() => __pbn__signature = null;
         private byte[] __pbn__signature;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public Offline_Ticket encrypted_ticket { get; set; }
 
     }
 
@@ -115,5 +128,5 @@ namespace SteamKit2.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

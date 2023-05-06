@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.Dota.Internal
 {
 
@@ -17,10 +17,10 @@ namespace SteamKit2.GC.Dota.Internal
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue(2)]
+        [global::System.ComponentModel.DefaultValue(2u)]
         public uint eresult
         {
-            get => __pbn__eresult ?? 2;
+            get => __pbn__eresult ?? 2u;
             set => __pbn__eresult = value;
         }
         public bool ShouldSerializeeresult() => __pbn__eresult != null;
@@ -61,15 +61,6 @@ namespace SteamKit2.GC.Dota.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public enum EGCPartnerRequestResponse
-    {
-        k_EPartnerRequestOK = 1,
-        k_EPartnerRequestBadAccount = 2,
-        k_EPartnerRequestNotLinked = 3,
-        k_EPartnerRequestUnsupportedPartnerType = 4,
-    }
-
-    [global::ProtoBuf.ProtoContract()]
     public enum EGCMsgUseItemResponse
     {
         k_EGCMsgUseItemResponse_ItemUsed = 0,
@@ -90,5 +81,5 @@ namespace SteamKit2.GC.Dota.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

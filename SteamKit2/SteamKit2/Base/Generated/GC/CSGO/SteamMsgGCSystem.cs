@@ -5,7 +5,7 @@
 // </auto-generated>
 
 #region Designer generated code
-#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning disable CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 namespace SteamKit2.GC.CSGO.Internal
 {
 
@@ -153,6 +153,55 @@ namespace SteamKit2.GC.CSGO.Internal
         public bool ShouldSerializesteamid_lobby() => __pbn__steamid_lobby != null;
         public void Resetsteamid_lobby() => __pbn__steamid_lobby = null;
         private ulong? __pbn__steamid_lobby;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CMsgGCHRecurringSubscriptionStatusChange : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public uint appid
+        {
+            get => __pbn__appid.GetValueOrDefault();
+            set => __pbn__appid = value;
+        }
+        public bool ShouldSerializeappid() => __pbn__appid != null;
+        public void Resetappid() => __pbn__appid = null;
+        private uint? __pbn__appid;
+
+        [global::ProtoBuf.ProtoMember(3, DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+        public ulong agreementid
+        {
+            get => __pbn__agreementid.GetValueOrDefault();
+            set => __pbn__agreementid = value;
+        }
+        public bool ShouldSerializeagreementid() => __pbn__agreementid != null;
+        public void Resetagreementid() => __pbn__agreementid = null;
+        private ulong? __pbn__agreementid;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public bool active
+        {
+            get => __pbn__active.GetValueOrDefault();
+            set => __pbn__active = value;
+        }
+        public bool ShouldSerializeactive() => __pbn__active != null;
+        public void Resetactive() => __pbn__active = null;
+        private bool? __pbn__active;
 
     }
 
@@ -454,6 +503,17 @@ namespace SteamKit2.GC.CSGO.Internal
         public void Resetcontinue_token() => __pbn__continue_token = null;
         private string __pbn__continue_token;
 
+        [global::ProtoBuf.ProtoMember(4)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string continue_text
+        {
+            get => __pbn__continue_text ?? "";
+            set => __pbn__continue_text = value;
+        }
+        public bool ShouldSerializecontinue_text() => __pbn__continue_text != null;
+        public void Resetcontinue_text() => __pbn__continue_text = null;
+        private string __pbn__continue_text;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -596,6 +656,9 @@ namespace SteamKit2.GC.CSGO.Internal
         k_EGCMsgGetGamePersonalDataEntriesResponse = 527,
         k_EGCMsgTerminateGamePersonalDataEntriesRequest = 528,
         k_EGCMsgTerminateGamePersonalDataEntriesResponse = 529,
+        k_EGCMsgRecurringSubscriptionStatusChange = 530,
+        k_EGCMsgDirectServiceMethod = 531,
+        k_EGCMsgDirectServiceMethodResponse = 532,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -673,5 +736,5 @@ namespace SteamKit2.GC.CSGO.Internal
 
 }
 
-#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
+#pragma warning restore CS0612, CS0618, CS1591, CS3021, IDE0079, IDE1006, RCS1036, RCS1057, RCS1085, RCS1192
 #endregion

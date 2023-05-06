@@ -34,9 +34,11 @@ namespace SteamKit2
 
                 HttpClientFactory = DefaultHttpClientFactory,
 
+                MachineInfoProvider = MachineInfoProvider.GetDefaultProvider(),
+
                 ProtocolTypes = ProtocolTypes.Tcp,
 
-                ServerListProvider = new NullServerListProvider(),
+                ServerListProvider = new MemoryServerListProvider(),
 
                 Universe = EUniverse.Public,
 
@@ -81,6 +83,12 @@ namespace SteamKit2
             return this;
         }
 
+        public ISteamConfigurationBuilder WithMachineInfoProvider(IMachineInfoProvider machineInfoProvider)
+        {
+            state.MachineInfoProvider = machineInfoProvider;
+            return this;
+        }
+
         public ISteamConfigurationBuilder WithProtocolTypes(ProtocolTypes protocolTypes)
         {
             state.ProtocolTypes = protocolTypes;
@@ -121,7 +129,7 @@ namespace SteamKit2
         {
             var client = new HttpClient();
 
-            var assemblyVersion = typeof(SteamConfiguration).Assembly.GetName().Version.ToString(fieldCount: 3);
+            var assemblyVersion = typeof(SteamConfiguration).Assembly.GetName().Version?.ToString(fieldCount: 3) ?? "UnknownVersion";
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SteamKit", assemblyVersion));
             return client;
         }
