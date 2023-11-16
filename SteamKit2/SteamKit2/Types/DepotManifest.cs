@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.IO.Hashing;
 
 namespace SteamKit2
 {
@@ -177,7 +178,7 @@ namespace SteamKit2
         /// </summary>
         /// <param name="data">Raw depot manifest data to deserialize.</param>
         /// <exception cref="InvalidDataException">Thrown if the given data is not something recognizable.</exception>
-        public static DepotManifest Deserialize(byte[] data) => new DepotManifest(data);
+        public static DepotManifest Deserialize(byte[] data) => new(data);
 
         /// <summary>
         /// Attempts to decrypts file names with the given encryption key.
@@ -438,7 +439,7 @@ namespace SteamKit2
                 byte[] data = new byte[ 4 + len ];
                 Buffer.BlockCopy( BitConverter.GetBytes( len ), 0, data, 0, 4 );
                 Buffer.BlockCopy( ms_payload.ToArray(), 0, data, 4, len );
-                uint crc32 = Crc32.Compute( data );
+                uint crc32 = Crc32.HashToUInt32( data );
 
                 if ( FilenamesEncrypted )
                 {

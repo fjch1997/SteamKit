@@ -81,9 +81,7 @@ namespace SteamKit2
         }
     }
 
-#if NET5_0_OR_GREATER
     [SupportedOSPlatform("windows")]
-#endif
     sealed class WindowsMachineInfoProvider : IMachineInfoProvider
     {
         public byte[]? GetMachineGuid()
@@ -152,9 +150,7 @@ namespace SteamKit2
         }
     }
 
-#if NET5_0_OR_GREATER
     [SupportedOSPlatform( "linux" )]
-#endif
     sealed class LinuxMachineInfoProvider : IMachineInfoProvider
     {
         public byte[]? GetMachineGuid()
@@ -265,9 +261,7 @@ namespace SteamKit2
         }
     }
 
-#if NET5_0_OR_GREATER
     [SupportedOSPlatform( "macos" )]
-#endif
     sealed class MacOSMachineInfoProvider : IMachineInfoProvider
     {
         public byte[]? GetMachineGuid()
@@ -298,7 +292,7 @@ namespace SteamKit2
 
         public byte[]? GetDiskId()
         {
-            var stat = new statfs();
+            var stat = new StatFS();
             var statted = statfs64( "/", ref stat );
             if ( statted == 0 )
             {
@@ -356,7 +350,7 @@ namespace SteamKit2
             }
         }
 
-        static ConditionalWeakTable<IMachineInfoProvider, Task<MachineID>> generationTable = new ConditionalWeakTable<IMachineInfoProvider, Task<MachineID>>();
+        static ConditionalWeakTable<IMachineInfoProvider, Task<MachineID>> generationTable = new();
 
         public static void Init(IMachineInfoProvider machineInfoProvider)
         {

@@ -121,7 +121,7 @@ namespace SteamKit2.Internal
         internal bool ExpectDisconnection { get; set; }
 
         // connection lock around the setup and tear down of the connection task
-        object connectionLock = new object();
+        object connectionLock = new();
         CancellationTokenSource? connectionCancellation;
         Task? connectionSetupTask;
         volatile IConnection? connection;
@@ -139,7 +139,7 @@ namespace SteamKit2.Internal
         {
             Configuration = configuration ?? throw new ArgumentNullException( nameof( configuration ) );
 
-            if ( identifier is null ) throw new ArgumentNullException( nameof( identifier ) );
+            ArgumentNullException.ThrowIfNull( identifier );
             if ( identifier.Length == 0 ) throw new ArgumentException( "Identifer must not be empty.", nameof( identifier ) );
 
             ID = identifier;

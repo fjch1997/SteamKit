@@ -29,7 +29,7 @@ namespace SteamKit2
         long currentJobId = 0;
         DateTime processStartTime;
 
-        object callbackLock = new object();
+        object callbackLock = new();
         Queue<ICallbackMsg> callbackQueue;
 
         Dictionary<EMsg, Action<IPacketMsg>> dispatchMap;
@@ -131,10 +131,7 @@ namespace SteamKit2
         /// <exception cref="InvalidOperationException">A handler of that type is already registered.</exception>
         public void AddHandler( ClientMsgHandler handler )
         {
-            if ( handler is null )
-            {
-                throw new ArgumentNullException( nameof( handler ) );
-            }
+            ArgumentNullException.ThrowIfNull( handler );
 
             if ( handlers.Contains( handler.GetType() ) )
             {

@@ -55,7 +55,7 @@ namespace SteamKit2
         /// </value>
         public static bool Enabled { get; set; }
 
-        internal static List<IDebugListener> listeners = new List<IDebugListener>();
+        internal static List<IDebugListener> listeners = new();
 
 
         /// <summary>
@@ -76,11 +76,8 @@ namespace SteamKit2
         /// <param name="listener">The listener.</param>
         public static void AddListener( IDebugListener listener )
         {
-            if ( listener == null )
-            {
-                throw new ArgumentNullException( nameof(listener) );
-            }
-            
+            ArgumentNullException.ThrowIfNull( listener );
+
             listeners.Add( listener );
         }
         /// <summary>

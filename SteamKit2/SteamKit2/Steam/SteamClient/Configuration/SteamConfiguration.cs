@@ -40,10 +40,7 @@ namespace SteamKit2
         /// <returns>A configuration object.</returns>
         public static SteamConfiguration Create(Action<ISteamConfigurationBuilder> configurator)
         {
-            if (configurator == null)
-            {
-                throw new ArgumentNullException(nameof(configurator));
-            }
+            ArgumentNullException.ThrowIfNull( configurator );
 
             var builder = new SteamConfigurationBuilder();
             configurator(builder);
@@ -51,7 +48,7 @@ namespace SteamKit2
         }
 
         internal static SteamConfiguration CreateDefault()
-            => new SteamConfiguration(SteamConfigurationBuilder.CreateDefaultState());
+            => new(SteamConfigurationBuilder.CreateDefaultState());
 
         readonly SteamConfigurationState state;
 
